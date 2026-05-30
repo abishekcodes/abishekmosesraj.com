@@ -13,6 +13,7 @@
     "analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
+    "generate:resume": "node scripts/generate-resume-pdf.mjs",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "@types/react": "^19.2.9",
     "critters": "0.0.25",
     "gh-pages": "^4.0.0",
+    "puppeteer": "^24.38.0",
     "typescript": "^5.9.3"
   },
   "engines": {

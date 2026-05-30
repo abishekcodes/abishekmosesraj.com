@@ -15,6 +15,7 @@ import {
   GitBranch,
   Bot,
   Workflow,
+  Download,
   LucideIcon
 } from 'lucide-react';
 import BrandIcon from '@/components/UI/BrandIcon';
@@ -213,13 +214,14 @@ const Hero = () => {
           </div>
 
           <div className="cta-buttons-new">
-            <button
+            <a
+              href="/resume.pdf"
+              download="Abishek_Moses_Raj_Resume.pdf"
               className="btn-primary-new"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Rocket size={18} />
-              Explore My Work
-            </button>
+              <Download size={18} />
+              Download Resume
+            </a>
             <a
               href="https://linkedin.com/in/abishekmosesraj"
               target="_blank"

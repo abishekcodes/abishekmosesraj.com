@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abishek Moses Raj - Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 9.8pt;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 28px 40px;
+      line-height: 1.45;
+    }
+
+    a { color: #0055cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Print bar ── */
+    .print-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .print-bar button, .print-bar a {
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-print { background: #0055cc; color: #fff; }
+    .btn-back  { background: #f0f0f0; color: #333; }
+
+    @media print {
+      .print-bar { display: none; }
+      body { padding: 0; max-width: 100%; font-size: 9pt; }
+      a { color: #000; }
+      .company-block, .project { page-break-inside: avoid; }
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      margin-bottom: 1px;
+    }
+    .header .title {
+      font-size: 10.5pt;
+      color: #444;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    .header .links {
+      font-size: 9pt;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #555;
+    }
+    .header .links span { color: #999; margin-right: 2px; }
+
+    /* ── Section headings ── */
+    section { margin-bottom: 13px; }
+    h2 {
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: #666;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 2px;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    /* ── Summary ── */
+    .summary p {
+      font-size: 9.5pt;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* ── Technical Skills ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .skill-row {
+      display: flex;
+      gap: 8px;
+      font-size: 9pt;
+      align-items: baseline;
+      padding: 4px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-label {
+      font-weight: 700;
+      color: #222;
+      white-space: nowrap;
+      min-width: 110px;
+    }
+    .skill-value { color: #444; }
+
+    /* ── Company block ── */
+    .company-block { margin-bottom: 6px; }
+    .company-name-header {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+      padding-bottom: 2px;
+      border-left: 3px solid #1a1a1a;
+      padding-left: 7px;
+    }
+    .role-block { margin-bottom: 9px; padding-left: 11px; }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+    .role-title {
+      font-weight: 600;
+      font-size: 10pt;
+      color: #222;
+    }
+    .role-duration {
+      font-size: 9pt;
+      color: #777;
+      white-space: nowrap;
+    }
+
+    /* ── Shared list styles ── */
+    ul {
+      padding-left: 15px;
+      list-style: disc;
+    }
+    ul li {
+      font-size: 9.5pt;
+      margin-bottom: 2px;
+      color: #2a2a2a;
+      line-height: 1.45;
+    }
+    .tech-line {
+      font-size: 8.5pt;
+      color: #666;
+      margin-top: 4px;
+    }
+    .tech-line strong { color: #444; }
+
+    /* ── Projects ── */
+    .project { margin-bottom: 10px; }
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 3px;
+    }
+    .project-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #111;
+    }
+    .project-title a { font-weight: 700; font-size: 10pt; }
+    .project-context {
+      font-size: 9pt;
+      color: #777;
+    }
+    .project p {
+      font-size: 9.5pt;
+      color: #333;
+      margin-bottom: 3px;
+      line-height: 1.45;
+    }
+    .project ul { margin-bottom: 3px; }
+
+    /* ── Footer ── */
+    .resume-footer {
+      font-size: 8pt;
+      color: #bbb;
+      text-align: center;
+      margin-top: 16px;
+      border-top: 1px solid #eee;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <a href="/" class="btn-back">← Portfolio</a>
+    <button class="btn-print" onclick="window.print()">⬇ Save as PDF</button>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <h1>Abishek Mosesraj</h1>
+    <div class="title">Tech Lead · Senior Consultant · Chennai, India</div>
+    <div class="links">
+      <a href="https://linkedin.com/in/abishekmosesraj" target="_blank"><span>in</span> linkedin.com/in/abishekmosesraj</a>
+      <a href="https://github.com/abishekcodes" target="_blank"><span>gh</span> github.com/abishekcodes</a>
+      <a href="https://abishekmosesraj.com" target="_blank"><span>www</span> abishekmosesraj.com</a>
+    </div>
+  </div>
+
+  <!-- ── SUMMARY ── -->
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>
+      Tech Lead and Senior Consultant with a strong track record of building backend systems that operate at
+      scale. At Roanuz, built and maintained AWS infrastructure that processed over <strong>4 billion API
+      requests</strong>, cut hosting costs from <strong>$18K to $9K per month</strong>, and supported platforms
+      handling <strong>50,000 requests per hour</strong>. Currently at Thoughtworks, working with an enterprise
+      client on agentic AI, contributing significant code to an <strong>in-house AI orchestration framework</strong>
+      that simplifies building LLM-powered conversational workflows using LangGraph and CrewAI. Comfortable
+      across the full backend stack, from REST API design and cloud infrastructure to event-driven architecture
+      and distributed systems. Has led and mentored engineering teams, managed production deployments, and
+      worked across fintech, sports data, and AI domains.
+    </p>
+  </section>
+
+  <!-- ── TECHNICAL SKILLS ── -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="skill-label">Languages</span><span class="skill-value">Python · JavaScript · Bash</span></div>
+      <div class="skill-row"><span class="skill-label">Frameworks</span><span class="skill-value">FastAPI · Flask · Aiohttp · Ariadne</span></div>
+      <div class="skill-row"><span class="skill-label">AI &amp; Agentic</span><span class="skill-value">LangGraph · CrewAI · AWS Bedrock · Prompt Engineering · OpenTelemetry</span></div>
+      <div class="skill-row"><span class="skill-label">AWS Services</span><span class="skill-value">EC2 · ECS · ECR · Lambda · S3 · Athena · Redshift · API Gateway · CDK · SQS · SNS · EventBridge · CodePipeline · CloudWatch · Bedrock · Fargate</span></div>
+      <div class="skill-row"><span class="skill-label">Messaging &amp; Streaming</span><span class="skill-value">Apache Kafka · RabbitMQ · AWS SQS/SNS</span></div>
+      <div class="skill-row"><span class="skill-label">Relational &amp; Analytical</span><span class="skill-value">MySQL · AWS Redshift · AWS Athena</span></div>
+      <div class="skill-row"><span class="skill-label">NoSQL</span><span class="skill-value">DynamoDB (Key-Value) · Cassandra (Wide-Column) · MongoDB (Document) · DocumentDB (Document) · Meilisearch (Search)</span></div>
+      <div class="skill-row"><span class="skill-label">DevOps &amp; Infra</span><span class="skill-value">Docker · AWS ECS · AWS CDK · CloudFormation · Git · CodePipeline · CloudWatch · OpenTelemetry (OTEL)</span></div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section>
+    <h2>Experience</h2>
+
+    <!-- Thoughtworks -->
+    <div class="company-block">
+      <div class="company-name-header">Thoughtworks &nbsp;<span style="font-weight:400;font-size:9pt;color:#777">- Client: Enterprise Client</span></div>
+      <div class="role-block">
+        <div class="role-header">
+          <span class="role-title">Senior Consultant</span>
+          <span class="role-duration">Jun 2025 - Present · Chennai</span>
+        </div>
+        <ul>
+          <li>Core contributor to an <strong>in-house AI orchestration framework</strong> that abstracts LangGraph and CrewAI into declarative YAML-based agentic workflows, cutting the time teams need to build enterprise conversational AI.</li>
+          <li>Extended the framework with <strong>AWS Bedrock</strong> support so teams can switch LLM providers without changing workflow definitions.</li>
+          <li>Improved core prompt engineering within the framework, enhancing agent response accuracy and reliability.</li>
+          <li>Implemented end-to-end observability using <strong>OpenTelemetry (OTEL)</strong> tracing across distributed agent execution pipelines.</li>
+          <li>Contributing to a <strong>WhatsApp AI customer support agent</strong> for an enterprise client using LangGraph, CrewAI, and FastAPI.</li>
+          <li>Mentoring developers across a <strong>10-20 person cross-functional team</strong> on code quality and engineering standards.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Roanuz -->
+    <div class="company-block">
+      <div class="company-name-header">Roanuz</div>
+
+      <div class="role-block">
+        <div class="role-header">
+          <span class="role-title">Tech Lead</span>
+          <span class="role-duration">Dec 2021 - May 2025 · Chennai</span>
+        </div>
+        <ul>
+          <li>Architected AWS infrastructure (EC2, S3, Lambda, ECS) achieving <strong>99.9% uptime</strong> across <strong>4B+ API requests</strong> processed over the tenure.</li>
+          <li>Led hosting cost optimisation, reducing infrastructure spend from <strong>$18K to $9K/month (50% reduction)</strong>.</li>
+          <li>Led a team of <strong>5 engineers</strong> building scalable Python-based sports data management and analytics platforms.</li>
+          <li>Built a real-time collaborative sports editing platform using <strong>WebSockets</strong>, improving team productivity and data accuracy.</li>
+          <li>Implemented <strong>Docker and AWS ECS</strong> containerisation, reducing deployment time by <strong>40%</strong>.</li>
+          <li>Established CI/CD pipelines using <strong>AWS CodePipeline</strong>; served as Developer Advocate for internal framework.</li>
+        </ul>
+      </div>
+
+      <div class="role-block">
+        <div class="role-header">
+          <span class="role-title">Software Engineer</span>
+          <span class="role-duration">May 2019 - Dec 2021 · Chennai</span>
+        </div>
+        <ul>
+          <li>Developed and optimised <strong>REST APIs</strong> for sports analytics platforms handling <strong>50,000 requests/hour</strong> at average load.</li>
+          <li>Set up AWS cloud infrastructure for cricket and football data, designed to scale from day one.</li>
+          <li>Improved IT Operations Support with proper workload tracking, leading to the establishment of a dedicated IT Ops team.</li>
+          <li>Recognised as <strong>Standout Performer 2021</strong> for technical excellence and process improvements.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Amazon -->
+    <div class="company-block">
+      <div class="company-name-header">Amazon</div>
+      <div class="role-block">
+        <div class="role-header">
+          <span class="role-title">ML Data Associate</span>
+          <span class="role-duration">Nov 2016 - May 2019 · Chennai</span>
+        </div>
+        <ul>
+          <li>Built <strong>automation tools</strong> for data workflow bottlenecks, increasing delivery speed by <strong>25%</strong>.</li>
+          <li>Drove QA quality improvements from <strong>88% to 92%</strong> through systematic error pattern analysis.</li>
+          <li>Received the <strong>Extra Mile Award</strong> for continuous contributions to process improvement.</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── KEY PROJECTS ── -->
+  <section>
+    <h2>Key Projects</h2>
+
+    <div class="project">
+      <div class="project-meta">
+        <span class="project-title"><a href="https://www.cricketapi.com/v5/package-pricing" target="_blank">API Billing &amp; Monetisation System ↗</a></span>
+        <span class="project-context">Software Engineer · Roanuz</span>
+      </div>
+      <p>Usage-based billing system for CricketAPI with real-time metering, dual payment gateway integration, and a self-service business console.</p>
+      <ul>
+        <li>Integrated <strong>Stripe</strong> (international) and <strong>Razorpay</strong> (India) with idempotency and reconciliation across both providers.</li>
+        <li>Built real-time usage metering using <strong>AWS EventBridge and DynamoDB</strong> with sub-minute per-customer granularity.</li>
+        <li>Developed a self-service console for plan management and revenue dashboards, eliminating developer dependency for commercial ops.</li>
+      </ul>
+      <div class="tech-line"><strong>Tech:</strong> Python · Flask · DynamoDB · EventBridge · Lambda · Stripe · Razorpay</div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <span class="project-title"><a href="https://www.cricketapi.com/v5/blog/ants-collaborative-sports-editor" target="_blank">Real-time Collaborative Sports Editor (ANTS) ↗</a></span>
+        <span class="project-context">Tech Lead (Team of 5) · Roanuz</span>
+      </div>
+      <p>Led 5 engineers to design and deliver a real-time collaborative data editor for live cricket coverage, replacing a legacy tool with latency and concurrency issues.</p>
+      <ul>
+        <li>Drove end-to-end delivery: system design, API contracts, service architecture, infrastructure setup, and phased migration.</li>
+        <li>Implemented <strong>event-driven architecture</strong> with Kafka and RabbitMQ for sub-second live data propagation across concurrent editors.</li>
+        <li>Achieved <strong>30% faster data entry</strong> vs legacy, with concurrent editing support and live conflict resolution.</li>
+      </ul>
+      <div class="tech-line"><strong>Tech:</strong> Python · Kafka · RabbitMQ · Cassandra · DynamoDB · AWS ECS</div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <span class="project-title">Zero-Downtime CI/CD Pipeline</span>
+        <span class="project-context">Software Engineer → Tech Lead · Roanuz</span>
+      </div>
+      <p>End-to-end CI/CD system for frontend, backend, and Lambda deployments with canary releases and automatic rollback.</p>
+      <ul>
+        <li>Implemented <strong>canary deployments</strong> via CodeDeploy + ECS with automatic traffic shifting and rollback on health check failures.</li>
+        <li>Defined infrastructure as code with <strong>AWS CDK</strong>; reduced deploy time from hours to minutes with zero outages.</li>
+      </ul>
+      <div class="tech-line"><strong>Tech:</strong> CodePipeline · CodeDeploy · ECR · ECS · Lambda · Docker · AWS CDK</div>
+    </div>
+
+    <div class="project">
+      <div class="project-meta">
+        <span class="project-title">Internal Framework Enhancements</span>
+        <span class="project-context">Developer Advocate · Roanuz</span>
+      </div>
+      <p>Extended Roanuz's internal Python framework with built-in search, message queue processing, and private package management - adopted by multiple teams.</p>
+      <ul>
+        <li>Integrated <strong>Elasticsearch</strong> as a built-in search provider and serverless task orchestration via <strong>AWS Fargate and Lambda</strong>.</li>
+        <li>Set up a private <strong>AWS CodeArtifact</strong> registry for versioned, auditable internal Python package distribution.</li>
+      </ul>
+      <div class="tech-line"><strong>Tech:</strong> Python · Elasticsearch · Fargate · Lambda · CodeArtifact · AWS CDK</div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section>
+    <h2>Education</h2>
+    <div class="role-block" style="padding-left:0;">
+      <div class="role-header">
+        <span class="role-title">B.E. Mechanical Engineering</span>
+        <span class="role-duration">May 2016</span>
+      </div>
+      <p style="font-size:9.5pt;color:#555;">Alpha College of Engineering · Chennai</p>
+    </div>
+  </section>
+
+  <div class="resume-footer">
+    abishekmosesraj.com &nbsp;·&nbsp; linkedin.com/in/abishekmosesraj &nbsp;·&nbsp; Contact via LinkedIn
+  </div>
+
+</body>
+</html>
