@@ -1,0 +1,402 @@
+/* ============================================================================ */
+/* APPS SHOWCASE SECTION - MATCHING PROJECTS STYLE */
+/* ============================================================================ */
+
+.apps {
+    min-height: 100vh;
+    padding: 8rem 2rem;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gradient overlay */
+.apps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.apps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Header - Same as Projects */
+.apps-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.apps-eyebrow {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.apps-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.apps-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* Apps Grid */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* App Card */
+.app-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.app-card-blue:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.app-card-green:hover {
+    background: rgba(34, 197, 94, 0.05);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.app-card-header {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-card-blue .app-card-header {
+    background: var(--color-blue);
+}
+
+.app-card-green .app-card-header {
+    background: var(--color-green-dark);
+}
+
+.app-card-logo {
+    width: 84px;
+    height: 84px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.app-card-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #00FFD1;
+    color: #0a0a0a;
+    box-shadow: 0 2px 8px rgba(0, 255, 209, 0.4);
+}
+
+.app-card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.app-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.app-card-tagline {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.app-card-blue .app-card-tagline {
+    color: var(--primary-light);
+}
+
+.app-card-green .app-card-tagline {
+    color: var(--color-green-light);
+}
+
+.app-card-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Feature List */
+.app-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.app-card-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.app-card-features .feature-icon {
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.app-card-blue .feature-icon {
+    color: var(--primary-color);
+}
+
+.app-card-green .feature-icon {
+    color: var(--color-green);
+}
+
+.app-card-green .tech-tag {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--color-green);
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+.app-card-green .tech-tag:hover {
+    background: rgba(34, 197, 94, 0.2);
+}
+
+/* Privacy Note */
+.app-card-privacy {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.app-card-privacy svg {
+    color: #00FFD1;
+    flex-shrink: 0;
+}
+
+/* CTA Link */
+.app-card-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.app-card-blue .app-card-cta {
+    color: var(--primary-color);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.app-card-blue .app-card-cta:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.app-card-green .app-card-cta {
+    color: var(--color-green);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.app-card-green .app-card-cta:hover {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.5);
+}
+
+.app-card-cta .cta-icon {
+    transition: all 0.3s ease;
+}
+
+.app-card-cta:hover .cta-icon {
+    transform: translate(2px, -2px);
+}
+
+/* ============================================================================ */
+/* MOBILE RESPONSIVE */
+/* ============================================================================ */
+
+@media (max-width: 768px) {
+    .apps {
+        padding: 4rem 1rem;
+    }
+
+    .apps-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .apps-eyebrow {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .apps-title {
+        margin-bottom: 1rem;
+    }
+
+    .apps-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .app-card {
+        border-radius: 16px;
+    }
+
+    .app-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .app-card-header {
+        height: 130px;
+    }
+
+    .app-card-content {
+        padding: 1.25rem;
+    }
+
+    .app-card-title {
+        font-size: 1.2rem;
+    }
+
+    .app-card-tagline {
+        font-size: 0.875rem;
+    }
+
+    .app-card-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .app-card-features {
+        margin-bottom: 1rem;
+    }
+
+    .app-card-features li {
+        font-size: 0.85rem;
+    }
+
+    .app-card-privacy {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .app-card-cta {
+        font-size: 0.85rem;
+        padding: 0.65rem 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .apps {
+        padding: 3rem 0.75rem;
+    }
+
+    .apps-header {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .apps-eyebrow {
+        font-size: 0.75rem;
+    }
+
+    .apps-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .apps-grid {
+        gap: 1rem;
+    }
+
+    .app-card {
+        border-radius: 14px;
+    }
+
+    .app-card-header {
+        height: 110px;
+    }
+
+    .app-card-content {
+        padding: 1rem;
+    }
+}

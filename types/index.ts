@@ -47,6 +47,19 @@ export interface Project {
   note?: string;
 }
 
+// Showcase Apps
+export interface ShowcaseApp {
+  id: string;
+  logo: string;
+  name: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  techStack: string[];
+  url: string;
+  accent: 'blue' | 'green';
+}
+
 // Poems
 export interface Poem {
   id: string;

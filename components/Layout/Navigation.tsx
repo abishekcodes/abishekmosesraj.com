@@ -30,6 +30,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
     { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
+    { href: '#apps', label: 'Apps' },
     { href: '#about', label: 'About Me' },
     { href: '#contact', label: 'Contact' }
   ];

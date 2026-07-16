@@ -56,10 +56,10 @@ const Projects = () => {
 
     const handleNavigateToNextSection = () => {
         handleCloseModal();
-        // Scroll to articles section
-        const articlesSection = document.getElementById('articles');
-        if (articlesSection) {
-            articlesSection.scrollIntoView({ behavior: 'smooth' });
+        // Scroll to apps section
+        const appsSection = document.getElementById('apps');
+        if (appsSection) {
+            appsSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 

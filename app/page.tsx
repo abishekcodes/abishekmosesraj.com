@@ -13,6 +13,7 @@ import useScrollSpy from '@/hooks/useScrollSpy';
 const Skills = dynamic(() => import('@/components/Sections/Skills'));
 const Experience = dynamic(() => import('@/components/Sections/Experience'));
 const Projects = dynamic(() => import('@/components/Sections/Projects'));
+const Apps = dynamic(() => import('@/components/Sections/Apps'));
 const About = dynamic(() => import('@/components/Sections/About'));
 const Articles = dynamic(() => import('@/components/Sections/Articles'));
 const Poetry = dynamic(() => import('@/components/Sections/Poetry'));
@@ -20,7 +21,7 @@ const Poetry = dynamic(() => import('@/components/Sections/Poetry'));
 const AppContent = () => {
   const { mode } = usePageMode();
 
-  const professionalSections = ['home', 'skills', 'experience', 'projects', 'articles', 'about', 'contact'];
+  const professionalSections = ['home', 'skills', 'experience', 'projects', 'apps', 'articles', 'about', 'contact'];
   const personalSections = ['home', 'poetry', 'contact'];
 
   const sections = mode === 'professional' ? professionalSections : personalSections;
@@ -37,6 +38,7 @@ const AppContent = () => {
             <Skills />
             <Experience />
             <Projects />
+            <Apps />
             <Articles />
             <About />
           </>

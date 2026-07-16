@@ -62,13 +62,13 @@ const ProjectModal = ({ project, isOpen, onClose, onPrev, onNext, currentIndex, 
   const isLastProject = !onNext;
   const IconComponent = project.icon;
 
-  // On last project, replace next button with "Continue to Articles"
+  // On last project, replace next button with "Continue to Apps"
   const nextButtonOverride = isLastProject && onNavigateToNextSection ? (
     <button
       className="project-modal-next-section-btn"
       onClick={onNavigateToNextSection}
     >
-      Articles
+      Apps
       <ArrowRight size={16} />
     </button>
   ) : undefined;
