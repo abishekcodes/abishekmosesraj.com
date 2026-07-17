@@ -10,7 +10,7 @@ const Skills = () => {
                     <p className="skills-eyebrow">Expertise</p>
                     <h2 className="skills-title">What I Do Best</h2>
                     <p className="skills-subtitle">
-                        Skills proven in production — with the numbers to back them
+                        Skills proven in production, with the numbers to back them
                     </p>
                 </div>
                 <div className="skills-grid">

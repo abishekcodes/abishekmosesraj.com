@@ -67,7 +67,7 @@ const Hero = () => {
     // AWS Cloud Architect
     [
       { icon: Cloud,     text: <>Designed scalable infra on <strong>EC2, S3, Lambda & ECS</strong> for high-traffic production systems</> },
-      { icon: TrendingUp,text: <>Cut AWS spend by <strong>50% — from $18K to $9K/month</strong> through architectural optimisation</> },
+      { icon: TrendingUp,text: <>Cut AWS spend by <strong>50% (from $18K to $9K/month)</strong> through architectural optimisation</> },
       { icon: Settings,  text: <>Implemented <strong>canary deployments</strong> and infrastructure automation across environments</> },
     ],
     // Python Developer

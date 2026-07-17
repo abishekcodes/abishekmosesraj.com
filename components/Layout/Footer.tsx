@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="footer-pitch">
               <h2 className="footer-pitch-title">Let's Build Something That Scales</h2>
               <p className="footer-pitch-text">
-                From AI agents to cloud architecture — if you need someone who has shipped it,
+                From AI agents to cloud architecture: if you need someone who has shipped it,
                 run it in production, and kept it running, let's talk.
               </p>
             </div>

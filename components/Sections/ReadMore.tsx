@@ -9,7 +9,7 @@ const ReadMore = () => {
       <div className="site-cta-container">
         <h2 className="site-cta-title">Want to Know the Person Behind the Apps?</h2>
         <p className="site-cta-text">
-          Explore my full portfolio — skills, projects, and 9 years of building systems at scale.
+          Explore my full portfolio: skills, projects, and 9 years of building systems at scale.
         </p>
         <a href="https://abishekmosesraj.com/" className="site-cta-link">
           <span>Read more at abishekmosesraj.com</span>
