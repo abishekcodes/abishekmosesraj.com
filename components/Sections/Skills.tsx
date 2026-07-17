@@ -8,7 +8,7 @@ const Skills = () => {
             <div className="skills-container">
                 <div className="skills-header">
                     <p className="skills-eyebrow">Expertise</p>
-                    <h2 className="skills-title">What I Bring to Your Team</h2>
+                    <h2 className="skills-title">What I Do Best</h2>
                     <p className="skills-subtitle">
                         Skills proven in production — with the numbers to back them
                     </p>
