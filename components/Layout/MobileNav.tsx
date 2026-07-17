@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePageMode } from '@/context/PageModeContext';
+import useIsAppsDomain from '@/hooks/useIsAppsDomain';
 import {
   Home,
   Code,
@@ -38,13 +39,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ activeSection }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const { mode } = usePageMode();
+  const showApps = useIsAppsDomain();
 
   const professionalNavItems = [
     { id: 'home', label: 'Home' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'apps', label: 'Apps' },
     { id: 'articles', label: 'Articles' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
@@ -56,7 +57,15 @@ const MobileNav: React.FC<MobileNavProps> = ({ activeSection }) => {
     { id: 'contact', label: 'Contact' },
   ];
 
-  const navItems = mode === 'professional' ? professionalNavItems : personalNavItems;
+  const appsDomainNavItems = [
+    { id: 'apps', label: 'Apps' },
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  const navItems = showApps
+    ? appsDomainNavItems
+    : mode === 'professional' ? professionalNavItems : personalNavItems;
   const currentIndex = navItems.findIndex(item => item.id === activeSection);
   const currentItem = navItems.find(item => item.id === activeSection) || navItems[0];
 

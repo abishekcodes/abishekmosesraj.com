@@ -16,6 +16,7 @@ import {
   Bot,
   Workflow,
   Download,
+  ArrowRight,
   LucideIcon
 } from 'lucide-react';
 import BrandIcon from '@/components/UI/BrandIcon';
@@ -49,11 +50,11 @@ const Hero = () => {
   const [descVisible, setDescVisible] = useState(true);
 
   const roles = [
-    { title: "Tech Lead", category: "leadership" },
-    { title: "AWS Cloud Architect", category: "cloud" },
-    { title: "Python Developer", category: "development" },
-    { title: "DevOps Engineer", category: "development" },
-    { title: "Mentor", category: "leadership" }
+    { title: "Tech Lead", category: "leadership", article: "a" },
+    { title: "AWS Cloud Architect", category: "cloud", article: "an" },
+    { title: "Python Developer", category: "development", article: "a" },
+    { title: "DevOps Engineer", category: "development", article: "a" },
+    { title: "Mentor", category: "leadership", article: "a" }
   ];
 
   const roleDescriptions: DescriptionLine[][] = [
@@ -71,7 +72,7 @@ const Hero = () => {
     ],
     // Python Developer
     [
-      { icon: Code,      text: <>Built <strong>REST & GraphQL APIs</strong> with Flask, Aiohttp & Ariadne handling 50K req/hour</> },
+      { icon: Code,      text: <>Contributed to <strong>REST & GraphQL APIs</strong> with Flask, Aiohttp & Ariadne handling 50K req/hour</> },
       { icon: Database,  text: <>Engineered pipelines on <strong>Cassandra, DynamoDB & Redshift</strong> storing 13 years of cricket data</> },
       { icon: Cpu,       text: <>Delivered <strong>high-performance Python services</strong> powering CricketAPI's 4B+ lifetime requests</> },
     ],
@@ -194,7 +195,7 @@ const Hero = () => {
           </h1>
 
           <div className="hero-role-container">
-            <span className="role-prefix">I'm a </span>
+            <span className="role-prefix">I'm {roles[currentRole].article} </span>
             <span className={`hero-role ${isTyping ? 'typing' : 'deleting'} role-${roles[currentRole].category}`}>
               {roles[currentRole].title}
             </span>
@@ -228,8 +229,8 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="btn-secondary-new"
             >
-              <span>Let's Build Something</span>
-              <Code size={18} />
+              <span>Let's Work Together</span>
+              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -241,8 +242,8 @@ const Hero = () => {
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Projects Delivered</div>
+              <div className="stat-number">4B+</div>
+              <div className="stat-label">API Requests Served</div>
             </div>
           </div>
 

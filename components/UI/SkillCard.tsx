@@ -28,6 +28,12 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
         </div>
         <h3 className="skill-title">{skill.title}</h3>
         <p className="skill-description">{skill.description}</p>
+        {skill.metric && (
+          <div className="skill-proof">
+            <span className="skill-metric">{skill.metric}</span>
+            <span className="skill-metric-label">{skill.metricLabel}</span>
+          </div>
+        )}
       </div>
     );
   };

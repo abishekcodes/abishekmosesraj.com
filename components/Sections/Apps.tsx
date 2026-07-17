@@ -83,6 +83,16 @@ const AppCard = ({ app, index }: AppCardProps) => {
           <span>Launch App</span>
           <ExternalLink size={14} className="cta-icon" />
         </a>
+
+        <div className="app-card-legal">
+          <a href={app.privacyUrl} target="_blank" rel="noopener noreferrer">
+            Privacy Policy
+          </a>
+          <span className="legal-divider">·</span>
+          <a href={app.termsUrl} target="_blank" rel="noopener noreferrer">
+            Terms of Service
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -53,6 +53,8 @@
     background: none;
     border: none;
     color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -80,6 +82,30 @@
   .nav-link:hover::after,
   .nav-link.active::after {
     width: 100%;
+  }
+
+  /* External nav link (e.g. Apps subdomain) */
+  .nav-link-external {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: inherit;
+  }
+
+  .nav-external-icon {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link-external:hover .nav-external-icon {
+    opacity: 1;
+  }
+
+  .mobile-menu-item-external {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
   }
 
   /* Mode Toggle */

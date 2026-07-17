@@ -56,10 +56,9 @@ const Projects = () => {
 
     const handleNavigateToNextSection = () => {
         handleCloseModal();
-        // Scroll to apps section
-        const appsSection = document.getElementById('apps');
-        if (appsSection) {
-            appsSection.scrollIntoView({ behavior: 'smooth' });
+        const articlesSection = document.getElementById('articles');
+        if (articlesSection) {
+            articlesSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
@@ -88,7 +87,7 @@ const Projects = () => {
                     <p className="projects-eyebrow">Portfolio</p>
                     <h2 className="projects-title">Featured Projects</h2>
                     <p className="projects-subtitle">
-                        Solutions I've built that made a real impact
+                        Solutions I've contributed to that made a real impact
                     </p>
                 </div>
                 <div className="projects-grid">

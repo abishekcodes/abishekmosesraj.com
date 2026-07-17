@@ -13,7 +13,7 @@ const projectsData: Project[] = [
     company: 'Roanuz',
     liveUrl: 'https://www.cricketapi.com/v5/package-pricing',
     problem: 'The platform needed a billing system to handle high-volume API metering with support for Indian and international payment gateways. Plan customization required manual developer intervention.',
-    solution: 'Built a billing system with real-time usage metering and Stripe/Razorpay integration. Developed a self-service console for plan customization, user tracking, and revenue dashboards.',
+    solution: 'Contributed to a billing system with real-time usage metering and Stripe/Razorpay integration. Worked on a self-service console for plan customization, user tracking, and revenue dashboards.',
     impact: [
       'Processes payments for thousands of API customers',
       'Handles millions of metered API calls',

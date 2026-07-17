@@ -15,6 +15,8 @@ const appsData: ShowcaseApp[] = [
     ],
     techStack: ['Next.js', 'Tailwind CSS', 'Google Sign-In', 'Google Drive API', 'PWA'],
     url: 'https://timekeeper.app.abishekmosesraj.com/',
+    privacyUrl: 'https://timekeeper.app.abishekmosesraj.com/privacy',
+    termsUrl: 'https://timekeeper.app.abishekmosesraj.com/terms',
     accent: 'blue',
   },
   {
@@ -31,6 +33,8 @@ const appsData: ShowcaseApp[] = [
     ],
     techStack: ['Next.js', 'Tailwind CSS', 'Google Sign-In', 'Google Sheets', 'PWA'],
     url: 'https://expensekeeper.app.abishekmosesraj.com/',
+    privacyUrl: 'https://expensekeeper.app.abishekmosesraj.com/privacy',
+    termsUrl: 'https://expensekeeper.app.abishekmosesraj.com/terms',
     accent: 'green',
   },
 ];

@@ -2,16 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePageMode } from '@/context/PageModeContext';
-import { Briefcase, Feather, Menu, X } from 'lucide-react';
+import useIsAppsDomain from '@/hooks/useIsAppsDomain';
+import { Briefcase, Feather, Menu, X, ExternalLink } from 'lucide-react';
 
 interface NavigationProps {
   activeSection: string;
+}
+
+interface NavItem {
+  href: string;
+  label: string;
+  external?: boolean;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mode, toggleMode } = usePageMode();
+  const showApps = useIsAppsDomain();
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -25,23 +33,31 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const professionalNavItems = [
+  const professionalNavItems: NavItem[] = [
     { href: '#home', label: 'Home' },
     { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
-    { href: '#apps', label: 'Apps' },
+    { href: 'https://app.abishekmosesraj.com/', label: 'Apps', external: true },
     { href: '#about', label: 'About Me' },
     { href: '#contact', label: 'Contact' }
   ];
 
-  const personalNavItems = [
+  const personalNavItems: NavItem[] = [
     { href: '#home', label: 'Home' },
     { href: '#poetry', label: 'Poetry' },
     { href: '#contact', label: 'Contact' }
   ];
 
-  const navItems = mode === 'professional' ? professionalNavItems : personalNavItems;
+  const appsDomainNavItems: NavItem[] = [
+    { href: '#apps', label: 'Apps' },
+    { href: '#about', label: 'About Me' },
+    { href: '#contact', label: 'Contact' }
+  ];
+
+  const navItems = showApps
+    ? appsDomainNavItems
+    : mode === 'professional' ? professionalNavItems : personalNavItems;
 
   const scrollToSection = (href: string): void => {
     const element = document.querySelector(href);
@@ -51,24 +67,37 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   return (
     <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''}`}>
       <div className="nav-container">
-        <div className="logo" onClick={() => scrollToSection('#home')}>
+        <div className="logo" onClick={() => scrollToSection(showApps ? '#apps' : '#home')}>
           <img src="/favicon.svg" alt="Abishek Mosesraj Logo" className="logo-svg" width={40} height={40} />
         </div>
 
         <ul className="nav-links">
-          {navItems.map(({ href, label }) => (
+          {navItems.map(({ href, label, external }) => (
             <li key={href}>
-              <button
-                onClick={() => scrollToSection(href)}
-                className={`nav-link ${activeSection === href.slice(1) ? 'active' : ''}`}
-              >
-                {label}
-              </button>
+              {external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link nav-link-external"
+                >
+                  {label}
+                  <ExternalLink size={11} className="nav-external-icon" />
+                </a>
+              ) : (
+                <button
+                  onClick={() => scrollToSection(href)}
+                  className={`nav-link ${activeSection === href.slice(1) ? 'active' : ''}`}
+                >
+                  {label}
+                </button>
+              )}
             </li>
           ))}
         </ul>
 
         <div className="nav-actions">
+          {!showApps && (
           <div className="mode-toggle">
             <button
               className={`mode-icon-btn ${mode === 'professional' ? 'active' : ''}`}
@@ -96,6 +125,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
               <span className="mode-tooltip">Poetry</span>
             </button>
           </div>
+          )}
           <button
             className="nav-hamburger"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,14 +139,28 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
 
       {isMenuOpen && (
         <div className="mobile-menu-dropdown">
-          {navItems.map(({ href, label }) => (
-            <button
-              key={href}
-              className={`mobile-menu-item ${activeSection === href.slice(1) ? 'active' : ''}`}
-              onClick={() => { scrollToSection(href); setIsMenuOpen(false); }}
-            >
-              {label}
-            </button>
+          {navItems.map(({ href, label, external }) => (
+            external ? (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-menu-item mobile-menu-item-external"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {label}
+                <ExternalLink size={12} className="nav-external-icon" />
+              </a>
+            ) : (
+              <button
+                key={href}
+                className={`mobile-menu-item ${activeSection === href.slice(1) ? 'active' : ''}`}
+                onClick={() => { scrollToSection(href); setIsMenuOpen(false); }}
+              >
+                {label}
+              </button>
+            )
           ))}
         </div>
       )}

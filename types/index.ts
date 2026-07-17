@@ -8,6 +8,8 @@ export interface Skill {
   brandIcon?: BrandIconName;
   title: string;
   description: string;
+  metric?: string;
+  metricLabel?: string;
 }
 
 // Experience
@@ -57,6 +59,8 @@ export interface ShowcaseApp {
   features: string[];
   techStack: string[];
   url: string;
+  privacyUrl: string;
+  termsUrl: string;
   accent: 'blue' | 'green';
 }
 

@@ -7,9 +7,9 @@ const experienceData: Experience[] = [
     position: 'Senior Consultant',
     duration: 'Jun 2025 - Present | Chennai, India',
     achievements: [
-      'Building Agentic AI solutions for enterprise clients',
-      'Developed expertise in FastAPI, LangGraph, and CrewAI frameworks',
-      'Designing and implementing multi-agent systems for complex workflows'
+      'Building production Agentic AI solutions for enterprise clients using LangGraph and CrewAI',
+      'Designing multi-agent systems that turn complex business workflows into reliable automation',
+      'Bringing 9 years of API and cloud experience to make AI systems production-ready, not just impressive demos'
     ],
     techStack: [
       { name: 'Kafka', icon: 'apachekafka' },
@@ -27,8 +27,8 @@ const experienceData: Experience[] = [
     achievements: [
       'Led a development team of 5 engineers in designing scalable Python-based solutions',
       'Architected AWS infrastructure achieving 99.9% uptime and improved performance',
-      'Implemented DevOps practices, reducing deployment time',
-      'Led cost optimization initiatives, resulting in 50% reduction in infrastructure costs'
+      'Implemented DevOps practices with zero-downtime canary deployments',
+      'Led cost optimization initiatives, cutting infrastructure costs 50% ($18K to $9K/month)'
     ],
     techStack: [
       { name: 'ECS', icon: 'ecs', custom: true },

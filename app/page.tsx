@@ -8,9 +8,11 @@ import Hero from '@/components/Sections/Hero';
 import PersonalHero from '@/components/Sections/PersonalHero';
 import Footer from '@/components/Layout/Footer';
 import useScrollSpy from '@/hooks/useScrollSpy';
+import useIsAppsDomain from '@/hooks/useIsAppsDomain';
 
 // Lazy load below-fold sections to reduce initial bundle size
 const Skills = dynamic(() => import('@/components/Sections/Skills'));
+const ReadMore = dynamic(() => import('@/components/Sections/ReadMore'));
 const Experience = dynamic(() => import('@/components/Sections/Experience'));
 const Projects = dynamic(() => import('@/components/Sections/Projects'));
 const Apps = dynamic(() => import('@/components/Sections/Apps'));
@@ -20,11 +22,15 @@ const Poetry = dynamic(() => import('@/components/Sections/Poetry'));
 
 const AppContent = () => {
   const { mode } = usePageMode();
+  const isAppsDomain = useIsAppsDomain();
 
-  const professionalSections = ['home', 'skills', 'experience', 'projects', 'apps', 'articles', 'about', 'contact'];
+  const professionalSections = ['home', 'skills', 'experience', 'projects', 'articles', 'about', 'contact'];
   const personalSections = ['home', 'poetry', 'contact'];
+  const appsDomainSections = ['apps', 'about', 'contact'];
 
-  const sections = mode === 'professional' ? professionalSections : personalSections;
+  const sections = isAppsDomain
+    ? appsDomainSections
+    : mode === 'professional' ? professionalSections : personalSections;
   const { activeSection } = useScrollSpy(sections);
 
   return (
@@ -32,13 +38,18 @@ const AppContent = () => {
       <BackgroundAnimation />
       <Navigation activeSection={activeSection} />
       <main>
-        {mode === 'professional' ? (
+        {isAppsDomain ? (
+          <>
+            <Apps />
+            <About />
+            <ReadMore />
+          </>
+        ) : mode === 'professional' ? (
           <>
             <Hero />
             <Skills />
             <Experience />
             <Projects />
-            <Apps />
             <Articles />
             <About />
           </>

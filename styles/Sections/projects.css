@@ -98,12 +98,25 @@
 
 .project-header {
     height: 180px;
-    background: var(--color-blue);
+    background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+/* Per-card header accents to break up the grid */
+.projects-grid .project-card:nth-child(4n+2) .project-header {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+}
+
+.projects-grid .project-card:nth-child(4n+3) .project-header {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+}
+
+.projects-grid .project-card:nth-child(4n+4) .project-header {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
 }
 
 .project-icon {

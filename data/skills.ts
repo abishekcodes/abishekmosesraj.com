@@ -6,33 +6,43 @@ const skillsData: Skill[] = [
     id: 1,
     icon: Bot,
     title: 'Agentic AI',
-    description: 'Building production-grade AI chatbots and multi-agent systems using LangGraph, CrewAI, and FastAPI. Experienced in prompt engineering techniques and orchestrating autonomous AI workflows for enterprise solutions.'
+    description: 'Contributes to AI chatbots and agentic systems built with LangGraph, CrewAI, and FastAPI, including one in production for an enterprise client — from prompt design to agent orchestration, not just demos.',
+    metric: '1',
+    metricLabel: 'agent framework in production'
   },
   {
     id: 2,
     icon: Cloud,
     brandIcon: 'aws',
     title: 'AWS Cloud Architecture',
-    description: 'Extensive experience designing and implementing scalable infrastructures using EC2, S3, Lambda, ECS, and other AWS services. Achieved 99.995% uptime and 50% cost reduction.'
+    description: 'Designs infrastructures that scale and bills that shrink. Cut monthly AWS spend from $18K to $9K while running EC2, S3, Lambda, and ECS workloads at 99.995% uptime.',
+    metric: '50%',
+    metricLabel: 'cloud cost reduction'
   },
   {
     id: 3,
     icon: Code,
     brandIcon: 'python',
     title: 'Python Development',
-    description: 'Expert in building high-performance applications, REST APIs, GraphQL APIs and data processing pipelines using Python and frameworks like Flask, Aiohttp and Ariadne. At average load, these systems handle 50,000 requests every hour.'
+    description: 'Builds high-performance REST and GraphQL APIs with Flask, Aiohttp, and Ariadne. The systems behind CricketAPI handle 50,000 requests every hour, at average load.',
+    metric: '4B+',
+    metricLabel: 'lifetime API requests served'
   },
   {
     id: 4,
     icon: Database,
     title: 'Database & Data Management',
-    description: 'Strong proficiency in AWS Redshift, Cassandra, DynamoDB, MySQL, and Athena for optimal data storage, retrieval, and analytics at scale. Have Implemented a system to store 13 years of cricket match data in Cassandra, Redshift and DynamoDB.',
+    description: 'Engineers storage that survives scale: Cassandra, DynamoDB, Redshift, MySQL, and Athena. Played a key role in designing the system holding 13 years of ball-by-ball cricket match data.',
+    metric: '13 yrs',
+    metricLabel: 'of sports data engineered'
   },
   {
     id: 5,
     icon: Users,
     title: 'Development Leadership',
-    description: 'Skilled in leading technical teams of 5+ engineers, conducting code reviews, mentoring developers, and fostering collaborative work environments.'
+    description: 'Grows engineers, not just codebases. Led a team of 5 from junior developers to independent contributors through code reviews, mentoring, and real ownership.',
+    metric: '5',
+    metricLabel: 'engineers mentored to independence'
   }
 ];
 
