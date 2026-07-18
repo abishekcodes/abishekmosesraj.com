@@ -68,6 +68,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="//api.rss2json.com" />
         <link rel="dns-prefetch" href="//medium.com" />
 
+        {/* The static export pre-renders the portfolio homepage; on the apps
+            subdomain, hide it before first paint until the client swaps in the
+            apps view (revealed by useIsAppsDomain). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "if(location.hostname==='app.abishekmosesraj.com')document.documentElement.setAttribute('data-apps-pending','');",
+          }}
+        />
+        <noscript>
+          <style>{'html[data-apps-pending] .App{visibility:visible;}'}</style>
+        </noscript>
+
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />

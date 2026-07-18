@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { PageMode } from '@/types';
+import { isAppsHost } from '@/hooks/useIsAppsDomain';
 
 interface PageModeContextType {
   mode: PageMode;
@@ -49,9 +50,16 @@ export const PageModeProvider: React.FC<PageModeProviderProps> = ({ children }) 
 
     localStorage.setItem(STORAGE_KEY, mode);
 
-    // Update URL query param
+    // The apps subdomain has no mode switcher, so leave its URL untouched
+    if (isAppsHost()) return;
+
+    // Reflect only the non-default mode in the URL; professional needs no param
     const url = new URL(window.location.href);
-    url.searchParams.set('kind', mode === 'personal' ? 'poetry' : 'pro');
+    if (mode === 'personal') {
+      url.searchParams.set('kind', 'poetry');
+    } else {
+      url.searchParams.delete('kind');
+    }
     window.history.replaceState({}, '', url);
   }, [mode, isInitialized]);
 

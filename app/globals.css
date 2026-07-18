@@ -189,3 +189,9 @@ body {
     page-break-inside: avoid;
   }
 }
+
+/* Hide the pre-rendered portfolio on the apps subdomain until the client
+   swaps in the apps view (attribute set by the inline script in layout.tsx) */
+html[data-apps-pending] .App {
+  visibility: hidden;
+}
