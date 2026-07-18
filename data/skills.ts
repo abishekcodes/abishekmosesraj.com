@@ -7,8 +7,8 @@ const skillsData: Skill[] = [
     icon: Bot,
     title: 'Agentic AI',
     description: 'I contribute to AI chatbots and agentic systems built with LangGraph, CrewAI, and FastAPI, including one in production for an enterprise client. From prompt design to agent orchestration, not just demos.',
-    metric: '1',
-    metricLabel: 'agent framework in production'
+    metric: '1.2M',
+    metricLabel: 'customers served in production'
   },
   {
     id: 2,
