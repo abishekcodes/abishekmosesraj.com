@@ -2,5 +2,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://abishekmosesraj.com/sitemap.xml
+Sitemap: https://app.abishekmosesraj.com/sitemap-apps.xml
