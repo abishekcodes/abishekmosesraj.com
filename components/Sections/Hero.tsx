@@ -17,10 +17,12 @@ import {
   Workflow,
   Download,
   ArrowRight,
+  Mail,
   LucideIcon
 } from 'lucide-react';
 import BrandIcon from '@/components/UI/BrandIcon';
 import type { BrandIconName } from '@/components/UI/BrandIcon';
+import ModalComponent from '@/components/UI/ModalComponent';
 
 // Calculate years of experience at build time (starting November 29, 2016)
 const START_DATE = new Date(2016, 10, 29);
@@ -48,6 +50,7 @@ const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [descVisible, setDescVisible] = useState(true);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const roles = [
     { title: "Tech Lead", category: "leadership", article: "a" },
@@ -223,15 +226,14 @@ const Hero = () => {
               <Download size={18} />
               Download Resume
             </a>
-            <a
-              href="https://linkedin.com/in/abishekmosesraj"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="btn-secondary-new"
+              onClick={() => setContactModalOpen(true)}
             >
               <span>Let's Work Together</span>
               <ArrowRight size={18} />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -288,6 +290,60 @@ const Hero = () => {
         <div className="scroll-line"></div>
         <div className="scroll-text">Scroll to explore</div>
       </div>
+
+      <ModalComponent
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+        onPrev={null}
+        onNext={null}
+        currentIndex={0}
+        totalCount={1}
+        config={{
+          maxWidth: 'sm',
+          showHeader: true,
+          showSideNav: false,
+          showFooter: false,
+        }}
+        headerContent={
+          <div className="contact-modal-header">
+            <h3>Let's Work Together</h3>
+            <p>How would you like to get in touch?</p>
+          </div>
+        }
+      >
+        <div className="contact-modal-options">
+          <a
+            href="mailto:contact@abishekmosesraj.com"
+            className="contact-modal-option email"
+            onClick={() => setContactModalOpen(false)}
+          >
+            <span className="contact-modal-option-icon">
+              <Mail size={22} />
+            </span>
+            <span className="contact-modal-option-text">
+              <span className="contact-modal-option-title">Send an Email</span>
+              <span className="contact-modal-option-detail">contact@abishekmosesraj.com</span>
+            </span>
+            <ArrowRight size={18} className="contact-modal-option-arrow" />
+          </a>
+          <a
+            href="https://linkedin.com/in/abishekmosesraj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-modal-option linkedin"
+            onClick={() => setContactModalOpen(false)}
+          >
+            <span className="contact-modal-option-icon">
+              <BrandIcon name="linkedin" size={22} />
+            </span>
+            <span className="contact-modal-option-text">
+              <span className="contact-modal-option-title">Connect on LinkedIn</span>
+              <span className="contact-modal-option-detail">linkedin.com/in/abishekmosesraj</span>
+            </span>
+            <ArrowRight size={18} className="contact-modal-option-arrow" />
+          </a>
+        </div>
+      </ModalComponent>
     </section>
   );
 };

@@ -59,6 +59,11 @@
     box-shadow: 0 2px 10px var(--glow-blue);
 }
 
+.social-icon-circle.email {
+    background: var(--color-gold-dark);
+    box-shadow: 0 2px 10px var(--glow-gold);
+}
+
 .social-icon-circle.medium {
     background: #12100E;
     box-shadow: 0 2px 10px rgba(18, 16, 14, 0.4);
@@ -96,6 +101,12 @@
     transform: translateY(-3px);
     box-shadow: 0 6px 20px var(--glow-blue);
     background: var(--color-blue-light);
+}
+
+.social-connect:hover .social-icon-circle.email {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--glow-gold);
+    background: var(--color-gold);
 }
 
 .social-connect:hover .social-icon-circle.medium {

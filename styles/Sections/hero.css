@@ -282,6 +282,7 @@
   .btn-primary-new, .btn-secondary-new {
     padding: 1rem 2rem;
     border-radius: 50px;
+    font-family: inherit;
     font-weight: 600;
     font-size: 1rem;
     border: none;
@@ -1165,4 +1166,105 @@
     .personal-hero .cta-buttons-new {
       justify-content: center;
     }
+  }
+
+  /* Contact Choice Modal ("Let's Work Together") */
+  .contact-modal-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .contact-modal-header p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0;
+  }
+
+  .contact-modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-modal-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-modal-option-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .contact-modal-option.email .contact-modal-option-icon {
+    background: var(--color-gold-dark);
+    box-shadow: 0 2px 10px var(--glow-gold);
+  }
+
+  .contact-modal-option.linkedin .contact-modal-option-icon {
+    background: var(--color-blue);
+    box-shadow: 0 2px 10px var(--glow-blue);
+  }
+
+  .contact-modal-option-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .contact-modal-option-title {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .contact-modal-option-detail {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .contact-modal-option-arrow {
+    margin-left: auto;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .contact-modal-option:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .contact-modal-option.email:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 15px var(--glow-gold);
+  }
+
+  .contact-modal-option.linkedin:hover {
+    border-color: var(--color-blue);
+    box-shadow: 0 4px 15px var(--glow-blue);
+  }
+
+  .contact-modal-option:hover .contact-modal-option-arrow {
+    color: var(--text-primary);
+    transform: translateX(3px);
   }

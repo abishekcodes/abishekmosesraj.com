@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { LayoutGrid } from 'lucide-react';
+import { LayoutGrid, Mail } from 'lucide-react';
 import BrandIcon from '@/components/UI/BrandIcon';
 import { usePageMode } from '@/context/PageModeContext';
 import useIsAppsDomain from '@/hooks/useIsAppsDomain';
@@ -26,6 +26,16 @@ const Footer = () => {
           <div className="footer-cta">
             {isProfessional ? (
               <div className="social-links">
+                <a
+                  href="mailto:contact@abishekmosesraj.com"
+                  className="social-connect"
+                  aria-label="Send an email"
+                >
+                  <span className="social-icon-circle email">
+                    <Mail size={20} />
+                  </span>
+                  <span className="social-text">Email</span>
+                </a>
                 <a
                   href="https://linkedin.com/in/abishekmosesraj"
                   target="_blank"
@@ -66,17 +76,29 @@ const Footer = () => {
                 )}
               </div>
             ) : (
-              <a
-                href="https://medium.com/@RiversOfThought"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-connect"
-              >
-                <span className="social-icon-circle medium">
-                  <BrandIcon name="medium" size={20} />
-                </span>
-                <span className="social-text">Connect on Medium</span>
-              </a>
+              <div className="social-links">
+                <a
+                  href="mailto:contact@abishekmosesraj.com"
+                  className="social-connect"
+                  aria-label="Send an email"
+                >
+                  <span className="social-icon-circle email">
+                    <Mail size={20} />
+                  </span>
+                  <span className="social-text">Email</span>
+                </a>
+                <a
+                  href="https://medium.com/@RiversOfThought"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-connect"
+                >
+                  <span className="social-icon-circle medium">
+                    <BrandIcon name="medium" size={20} />
+                  </span>
+                  <span className="social-text">Connect on Medium</span>
+                </a>
+              </div>
             )}
           </div>
           <p className="footer-text">

@@ -93,6 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               jobTitle: 'Senior Consultant',
               description: 'Tech Lead with 9 years building scalable Python applications and AWS cloud architectures. Expert in FastAPI, LangGraph, and AI agents.',
               url: 'https://abishekmosesraj.com',
+              email: 'mailto:contact@abishekmosesraj.com',
               sameAs: [
                 'https://linkedin.com/in/abishekmosesraj',
                 'https://github.com/abishekcodes'
