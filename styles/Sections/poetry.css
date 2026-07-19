@@ -1,5 +1,6 @@
 /* ============================================================================ */
-/* POETRY SECTION - DARK THEME */
+/* POETRY SECTION - MIDNIGHT ATELIER                                            */
+/* An ink-violet night lit by candlelight gold: grain, glow and serif verse.    */
 /* ============================================================================ */
 
 .poetry {
@@ -8,6 +9,30 @@
     background: var(--bg-dark);
     position: relative;
     overflow: hidden;
+}
+
+/* Paper grain over the whole section */
+.poetry::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--poetry-grain);
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* A vast, ghostly quotation mark drifting behind the verses */
+.poetry::after {
+    content: '\201C';
+    position: absolute;
+    top: -0.12em;
+    left: -0.05em;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: clamp(18rem, 40vw, 34rem);
+    line-height: 1;
+    color: var(--color-blue);
+    opacity: 0.05;
+    pointer-events: none;
 }
 
 .poetry-container {
@@ -24,28 +49,58 @@
 }
 
 .poetry-eyebrow {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 400;
+    font-family: var(--font-cormorant), Georgia, serif;
     color: var(--color-blue);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.35em;
     margin-bottom: 1rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Fine gilded rules either side of the eyebrow */
+.poetry-eyebrow::before,
+.poetry-eyebrow::after {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6));
+}
+
+.poetry-eyebrow::after {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.6), transparent);
 }
 
 .poetry-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 700;
+    font-family: var(--font-pinyon), cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    font-weight: 400;
     background: linear-gradient(135deg, var(--color-blue), var(--color-blue-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+    text-shadow: 0 0 60px rgba(59, 130, 246, 0.25);
+}
+
+/* Fleuron beneath the title */
+.poetry-title::after {
+    content: '\2766';
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+    -webkit-text-fill-color: rgba(59, 130, 246, 0.55);
+    margin-top: 0.75rem;
 }
 
 .poetry-subtitle {
-    font-size: 1.25rem;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 1.4rem;
     color: var(--text-secondary);
     font-weight: 400;
     max-width: 550px;
@@ -99,12 +154,13 @@
     margin-bottom: 4rem;
 }
 
-/* Poem Card */
+/* Poem Card - a leaf from a manuscript, each resting at its own angle */
 .poem-card {
-    background: var(--bg-card);
-    border-radius: 12px;
+    --tilt: 0deg;
+    background: linear-gradient(160deg, var(--poetry-card, #151515) 0%, var(--poetry-card-deep, #0b0b0b) 100%);
+    border-radius: 4px 18px 4px 18px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.14);
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
     opacity: 0;
@@ -118,27 +174,42 @@
     user-select: none;
 }
 
-/* Poem Card Thumbnail */
+.poetry-grid .poem-card:nth-child(3n + 1) { --tilt: -0.8deg; }
+.poetry-grid .poem-card:nth-child(3n + 2) { --tilt: 0.6deg; }
+.poetry-grid .poem-card:nth-child(3n) { --tilt: -0.4deg; }
+
+/* Poem Card Thumbnail - sepia-washed until you lean in */
 .poem-thumbnail {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
+}
+
+.poem-thumbnail::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--poetry-card, #151515), transparent 45%);
+    pointer-events: none;
 }
 
 .poem-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    filter: saturate(0.65) sepia(0.18);
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .poem-card:hover .poem-thumbnail img {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    filter: saturate(1) sepia(0);
 }
 
 .poem-card-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotate(var(--tilt));
 }
 
 .poem-card::before {
@@ -147,10 +218,11 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--color-blue);
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light));
     transform: scaleX(0);
     transition: transform 0.3s ease;
+    z-index: 1;
 }
 
 .poem-card:hover::before {
@@ -158,9 +230,11 @@
 }
 
 .poem-card:hover {
-    border-color: rgba(59, 130, 246, 0.3);
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(59, 130, 246, 0.45);
+    transform: translateY(-6px) rotate(0deg);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(59, 130, 246, 0.08);
 }
 
 .poem-content {
@@ -168,30 +242,48 @@
 }
 
 .poem-date {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text-muted);
     font-weight: 400;
     display: block;
     margin-bottom: 0.75rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 
+.poem-date::before {
+    content: '\2726';
+    color: rgba(59, 130, 246, 0.6);
+    margin-right: 0.5em;
+    font-size: 0.85em;
+}
+
 .poem-title {
-    font-size: 1.35rem;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 1.55rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--text-primary);
-    letter-spacing: -0.01em;
-    line-height: 1.3;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
 }
 
 .poem-excerpt {
+    font-family: var(--font-cormorant), Georgia, serif;
     color: var(--text-secondary);
     margin-bottom: 0;
-    line-height: 1.7;
-    font-size: 0.95rem;
+    line-height: 1.65;
+    font-size: 1.1rem;
     font-style: italic;
+}
+
+.poem-excerpt::before {
+    content: '\201C';
+    color: var(--color-blue);
+    font-size: 1.4em;
+    line-height: 0;
+    vertical-align: -0.25em;
+    margin-right: 0.08em;
 }
 
 .poem-read-more-inline {
@@ -199,7 +291,7 @@
     border: none;
     color: var(--color-blue);
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 0.95em;
     cursor: pointer;
     padding: 0;
     transition: color 0.3s ease;
@@ -245,21 +337,25 @@
 
 .poetry-link-btn {
     display: inline-block;
-    padding: 0.875rem 2rem;
-    background: var(--color-blue);
-    color: white;
+    padding: 0.8rem 2.4rem;
+    background: rgba(59, 130, 246, 0.06);
+    color: var(--color-blue-light);
     text-decoration: none;
-    border-radius: 50px;
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    border-radius: 2px;
+    font-family: var(--font-cormorant), Georgia, serif;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--glow-blue);
 }
 
 .poetry-link-btn:hover {
     transform: translateY(-2px);
-    background: var(--color-blue-light);
-    box-shadow: 0 8px 25px var(--glow-blue);
+    background: rgba(59, 130, 246, 0.14);
+    border-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.18);
 }
 
 /* ============================================================================ */
@@ -283,8 +379,8 @@
     }
 
     .poetry-title {
-        font-size: clamp(2rem, 10vw, 2.5rem);
-        margin-bottom: 1rem;
+        font-size: clamp(2.8rem, 13vw, 3.5rem);
+        margin-bottom: 0.75rem;
     }
 
     .poetry-subtitle {
@@ -329,7 +425,7 @@
     }
 
     .poem-title {
-        font-size: 1rem;
+        font-size: 1.15rem;
         margin-bottom: 0.5rem;
         line-height: 1.25;
     }
@@ -376,8 +472,8 @@
     }
 
     .poetry-title {
-        font-size: clamp(1.75rem, 9vw, 2rem);
-        margin-bottom: 0.75rem;
+        font-size: clamp(2.4rem, 12vw, 2.8rem);
+        margin-bottom: 0.5rem;
     }
 
     .poetry-subtitle {
@@ -410,7 +506,7 @@
     }
 
     .poem-title {
-        font-size: 0.9rem;
+        font-size: 1.05rem;
         margin-bottom: 0.4rem;
     }
 
@@ -438,31 +534,8 @@
 /* POEM MODAL - DARK THEME WITH PINYON SCRIPT & LATO */
 /* ============================================================================ */
 
-.poem-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 2rem;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/* The modal backdrop itself comes from ModalComponent
+   (.modal-component-backdrop in styles/UI/modal-component.css) */
 
 .poem-modal {
     background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
@@ -573,7 +646,7 @@
 }
 
 .poem-modal-header-date-text {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     font-size: 0.75rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -581,7 +654,7 @@
 }
 
 .poem-modal-sticky-title {
-    font-family: 'Pinyon Script', cursive;
+    font-family: var(--font-pinyon), 'Pinyon Script', cursive;
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--text-primary);
@@ -738,7 +811,7 @@
 .poem-modal-caption {
     display: block;
     padding: 0.75rem 3rem 1.5rem;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     font-size: 0.8rem;
     font-style: italic;
     color: var(--text-muted);
@@ -753,7 +826,7 @@
     font-weight: 400;
     display: block;
     margin-bottom: 1rem;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -764,7 +837,7 @@
     color: var(--text-primary);
     margin-bottom: 2rem;
     line-height: 1.2;
-    font-family: 'Pinyon Script', cursive;
+    font-family: var(--font-pinyon), 'Pinyon Script', cursive;
     text-align: center;
 }
 
@@ -774,7 +847,7 @@
     font-size: 1.5rem;
     color: var(--color-blue);
     margin-top: 1rem;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
 }
 
 .poem-modal-text {
@@ -821,11 +894,11 @@
 
 .poem-line {
     display: block;
-    line-height: 2;
+    line-height: 1.9;
     font-style: italic;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 1.2rem;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 500;
+    font-size: 1.35rem;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
     transition: color 0.3s ease;
@@ -855,7 +928,8 @@
 }
 
 .poem-modal-cta-title {
-    font-size: 2rem;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
@@ -875,7 +949,7 @@
 }
 
 .poem-modal-signature {
-    font-family: 'Pinyon Script', cursive;
+    font-family: var(--font-pinyon), 'Pinyon Script', cursive;
     font-size: 2.5rem;
     color: var(--color-blue);
     margin-top: 1.5rem;
@@ -926,7 +1000,7 @@
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px var(--glow-blue);
     white-space: nowrap;
@@ -984,7 +1058,7 @@
 .poem-modal-counter {
     font-size: 0.9rem;
     color: var(--text-muted);
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     font-weight: 300;
 }
 
@@ -995,7 +1069,7 @@
     color: var(--color-blue);
     text-decoration: none;
     font-size: 0.85rem;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-lato), 'Lato', sans-serif;
     transition: all 0.3s ease;
     padding: 0.5rem 1rem;
     border-radius: 50px;
@@ -1137,11 +1211,6 @@
 /* ============================================================================ */
 
 @media (max-width: 600px) {
-    .poem-modal-overlay {
-        padding: 0;
-        align-items: flex-end;
-    }
-
     .poem-modal {
         max-height: 95vh;
         height: 95vh;
@@ -1272,7 +1341,7 @@
         color: var(--color-blue);
         text-decoration: none;
         font-size: 0.8rem;
-        font-family: 'Lato', sans-serif;
+        font-family: var(--font-lato), 'Lato', sans-serif;
         padding: 0.4rem 0.75rem;
         border-radius: 50px;
         border: 1px solid rgba(59, 130, 246, 0.3);
@@ -1311,8 +1380,8 @@
     }
 
     .poem-line {
-        font-size: 1rem;
-        line-height: 1.8;
+        font-size: 1.15rem;
+        line-height: 1.85;
     }
 
     /* Hide floating nav buttons on mobile */
@@ -1535,8 +1604,8 @@
     }
 
     .poem-line {
-        font-size: 0.95rem;
-        line-height: 1.75;
+        font-size: 1.1rem;
+        line-height: 1.8;
     }
 
     .poem-modal-footer {

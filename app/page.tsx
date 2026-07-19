@@ -21,8 +21,9 @@ const Articles = dynamic(() => import('@/components/Sections/Articles'));
 const Poetry = dynamic(() => import('@/components/Sections/Poetry'));
 
 const AppContent = () => {
-  const { mode } = usePageMode();
+  const { mode, hasSwitched } = usePageMode();
   const isAppsDomain = useIsAppsDomain();
+  const modeSwitchClass = hasSwitched ? 'mode-switch' : '';
 
   const professionalSections = ['home', 'skills', 'experience', 'projects', 'articles', 'about', 'contact'];
   const personalSections = ['home', 'poetry', 'contact'];
@@ -34,7 +35,7 @@ const AppContent = () => {
   const { activeSection } = useScrollSpy(sections);
 
   return (
-    <div className="App">
+    <div className={`App${!isAppsDomain && mode === 'personal' ? ' personal-mode' : ''}`}>
       <BackgroundAnimation />
       <Navigation activeSection={activeSection} />
       <main>
@@ -45,19 +46,19 @@ const AppContent = () => {
             <ReadMore />
           </>
         ) : mode === 'professional' ? (
-          <>
+          <div key="professional" className={modeSwitchClass}>
             <Hero />
             <Skills />
             <Experience />
             <Projects />
             <Articles />
             <About />
-          </>
+          </div>
         ) : (
-          <>
+          <div key="personal" className={modeSwitchClass}>
             <PersonalHero />
             <Poetry />
-          </>
+          </div>
         )}
       </main>
       <Footer />

@@ -1,4 +1,4 @@
-import { Lato, Pinyon_Script } from 'next/font/google';
+import { Lato, Pinyon_Script, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 
 const lato = Lato({
@@ -13,6 +13,14 @@ const pinyonScript = Pinyon_Script({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-pinyon',
+  display: 'swap',
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
   display: 'swap',
 });
 
@@ -59,7 +67,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${lato.variable} ${pinyonScript.variable}`}>
+    <html lang="en" className={`${lato.variable} ${pinyonScript.variable} ${cormorant.variable}`}>
       <head>
         {/* Preconnect for Medium CDN (poem thumbnails) */}
         <link rel="preconnect" href="https://miro.medium.com" crossOrigin="anonymous" />

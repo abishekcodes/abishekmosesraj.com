@@ -61,9 +61,50 @@
   --glow-green: rgba(34, 197, 94, 0.4);
   --glow-blue: rgba(59, 130, 246, 0.4);
 
-  /* Fonts */
-  --font-lato: var(--font-lato), 'Lato', sans-serif;
-  --font-pinyon: var(--font-pinyon), 'Pinyon Script', cursive;
+  /* Font variables (--font-lato, --font-pinyon, --font-cormorant) are set on
+     <html> by next/font; redefining them here would create a var() cycle that
+     invalidates them, so they are intentionally not declared in :root. */
+}
+
+/* ============================================================================ */
+/* PERSONAL / POETRY MODE                                                       */
+/* The poetry side shares the professional color theme (blue accents on black); */
+/* its identity comes from typography, ornaments and texture instead. Only      */
+/* poetry-specific neutrals and the grain texture are defined here.             */
+/* ============================================================================ */
+.App.personal-mode {
+  /* Poem card surface tones */
+  --poetry-card: #151515;
+  --poetry-card-deep: #0b0b0b;
+
+  /* Shared paper-grain texture (used by the personal hero and poetry section) */
+  --poetry-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Crossing between the professional and personal worlds: the incoming view
+   rises out of the dark like a page being turned over. The class is applied
+   only after the user toggles modes (hasSwitched in PageModeContext), never
+   on first paint. No fill-mode, so once the animation ends the wrapper stops
+   being a containing block for position:fixed descendants (the modals). */
+.mode-switch {
+  animation: modeSwitchIn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes modeSwitchIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mode-switch {
+    animation: none;
+  }
 }
 
 /* Base Reset */

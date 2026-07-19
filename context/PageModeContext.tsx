@@ -8,6 +8,10 @@ interface PageModeContextType {
   mode: PageMode;
   setMode: React.Dispatch<React.SetStateAction<PageMode>>;
   toggleMode: () => void;
+  /* True only after the user has toggled modes in this session; the initial
+     load (including localStorage/URL restore) does not count, so the
+     mode-switch animation never plays on first paint. */
+  hasSwitched: boolean;
 }
 
 interface PageModeProviderProps {
@@ -21,6 +25,7 @@ const STORAGE_KEY = 'pageMode';
 export const PageModeProvider: React.FC<PageModeProviderProps> = ({ children }) => {
   const [mode, setMode] = useState<PageMode>('professional');
   const [isInitialized, setIsInitialized] = useState(false);
+  const [hasSwitched, setHasSwitched] = useState(false);
 
   // Initialize from URL params and localStorage on client
   useEffect(() => {
@@ -65,6 +70,7 @@ export const PageModeProvider: React.FC<PageModeProviderProps> = ({ children }) 
 
   const toggleMode = () => {
     const goingToPersonal = mode === 'professional';
+    setHasSwitched(true);
     setMode(prev => prev === 'professional' ? 'personal' : 'professional');
 
     if (goingToPersonal) {
@@ -76,7 +82,7 @@ export const PageModeProvider: React.FC<PageModeProviderProps> = ({ children }) 
   };
 
   return (
-    <PageModeContext.Provider value={{ mode, setMode, toggleMode }}>
+    <PageModeContext.Provider value={{ mode, setMode, toggleMode, hasSwitched }}>
       {children}
     </PageModeContext.Provider>
   );
