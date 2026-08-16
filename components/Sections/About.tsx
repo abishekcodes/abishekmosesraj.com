@@ -1,39 +1,24 @@
 'use client';
 
-import React, { useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { Lightbulb, Code, Rocket } from 'lucide-react';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 const About: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  // Observe the content wrapper, not the whole section: the section is several
+  // viewports tall, so watching it would fire the reveal long before any of the
+  // animated blocks are actually on screen.
+  const [contentRef, isVisible] = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section id="about" className="about" ref={sectionRef}>
+    <section id="about" className="about">
       <div className="about-container">
         <div className="about-header">
           <p className="about-eyebrow">About Me</p>
           <h2 className="about-title">The Story So Far</h2>
         </div>
 
-        <div className="about-content">
+        <div className="about-content" ref={contentRef}>
           <div className={`about-story ${isVisible ? 'about-story-visible' : ''}`}>
             <div className="story-card">
               <p>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import ModalComponent from '@/components/UI/ModalComponent';
+import useScrollReveal from '@/hooks/useScrollReveal';
 import '@/styles/Sections/poetry.css';
 import type { Poem } from '@/types';
 
@@ -335,26 +336,7 @@ interface PoemCardProps {
 }
 
 const PoemCard: React.FC<PoemCardProps> = ({ poem, index, onReadMore }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 100);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [index]);
+  const [cardRef, isVisible] = useScrollReveal<HTMLElement>({ delay: index * 100 });
 
   return (
     <article

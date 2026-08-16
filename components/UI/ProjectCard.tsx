@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Briefcase, ArrowRight } from 'lucide-react';
 import type { Project } from '@/types';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 interface ProjectCardProps {
     project: Project;
@@ -11,28 +12,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index, onCardClick }: ProjectCardProps) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const cardRef = useRef<HTMLDivElement>(null);
+    const [cardRef, isVisible] = useScrollReveal<HTMLDivElement>({ delay: index * 150 });
     const IconComponent = project.icon;
-
-    useEffect(() => {
-      const element = cardRef.current;
-      if (!element) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            // Staggered delay based on index
-            setTimeout(() => setIsVisible(true), index * 150);
-            observer.unobserve(element);
-          }
-        },
-        { threshold: 0.15 }
-      );
-
-      observer.observe(element);
-      return () => observer.disconnect();
-    }, [index]);
 
     return (
       <div

@@ -1,0 +1,264 @@
+/* ============================================================================ */
+/* APPS PREVIEW BAND - COMPACT TEASER FOR THE APPS SUBDOMAIN                     */
+/* Deliberately shorter than the full-height sections: this is a band between    */
+/* Projects and Articles, not a third showcase competing with them.              */
+/* ============================================================================ */
+
+.apps-preview {
+    padding: 6rem 2rem;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.apps-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(34, 197, 94, 0.07) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.apps-preview-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header - smaller than Projects/Experience so the hierarchy stays intact */
+.apps-preview-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.apps-preview-eyebrow {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-green-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.apps-preview-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.apps-preview-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Grid */
+.apps-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Card - the whole card is the link */
+.app-preview-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease,
+                transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.app-preview-card-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-preview-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.app-preview-card-blue:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.app-preview-card-green:hover {
+    background: rgba(34, 197, 94, 0.05);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.app-preview-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.app-preview-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.app-preview-status {
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #00FFD1;
+    color: #0a0a0a;
+    box-shadow: 0 2px 8px rgba(0, 255, 209, 0.35);
+}
+
+.app-preview-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.4rem 0;
+}
+
+.app-preview-tagline {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
+}
+
+.app-preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.app-preview-tag {
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.app-preview-card-blue .app-preview-tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--color-blue-light);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.app-preview-card-green .app-preview-tag {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--color-green-light);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* CTA pinned to the bottom so both cards align regardless of tagline length */
+.app-preview-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: gap 0.3s ease;
+}
+
+.app-preview-card-blue .app-preview-cta {
+    color: var(--color-blue-light);
+}
+
+.app-preview-card-green .app-preview-cta {
+    color: var(--color-green-light);
+}
+
+.app-preview-card:hover .app-preview-cta {
+    gap: 0.7rem;
+}
+
+/* See all apps */
+.apps-preview-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 2.5rem auto 0;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.apps-preview-all:hover {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: rgba(34, 197, 94, 0.06);
+    transform: translateY(-2px);
+}
+
+/* Tablet & mobile */
+@media (max-width: 768px) {
+    .apps-preview {
+        padding: 4rem 1.25rem;
+    }
+
+    .apps-preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apps-preview-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .apps-preview-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .app-preview-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .app-preview-card:hover {
+        transform: none;
+    }
+
+    .apps-preview-all:hover {
+        transform: none;
+    }
+}

@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { ExternalLink, ShieldCheck, Check } from 'lucide-react';
 import appsData from '@/data/apps';
+import useScrollReveal from '@/hooks/useScrollReveal';
 import type { ShowcaseApp } from '@/types';
 
 interface AppCardProps {
@@ -11,27 +12,7 @@ interface AppCardProps {
 }
 
 const AppCard = ({ app, index }: AppCardProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = cardRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Staggered delay based on index
-          setTimeout(() => setIsVisible(true), index * 150);
-          observer.unobserve(element);
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [index]);
+  const [cardRef, isVisible] = useScrollReveal<HTMLDivElement>({ delay: index * 150 });
 
   return (
     <div

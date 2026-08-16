@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import experienceData from '@/data/experience';
 import TimelineItem from '@/components/UI/TimelineItem';
 import BrandIcon from '@/components/UI/BrandIcon';
+import useScrollReveal from '@/hooks/useScrollReveal';
 import type { TechStack, Experience as ExperienceType } from '@/types';
 
 interface TechBadgeProps {
@@ -149,30 +150,10 @@ interface ExperienceCardProps {
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, index }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const element = cardRef.current;
-        if (!element) return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    // Small delay for staggered effect
-                    setTimeout(() => setIsVisible(true), 100);
-                    observer.unobserve(element);
-                }
-            },
-            {
-                threshold: 0.15,
-                rootMargin: '0px 0px -150px 0px' // Trigger when card is 150px from bottom
-            }
-        );
-
-        observer.observe(element);
-        return () => observer.disconnect();
-    }, [index]);
+    const [cardRef, isVisible] = useScrollReveal<HTMLDivElement>({
+        delay: 100,
+        rootMargin: '0px 0px -150px 0px', // Trigger when card is 150px from bottom
+    });
 
     const getExperienceYear = (exp: ExperienceType): number => {
         const parts = exp.duration.split(' - ');

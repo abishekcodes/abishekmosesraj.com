@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import type { Skill } from '@/types';
 import BrandIcon from '@/components/UI/BrandIcon';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 interface SkillCardProps {
     skill: Skill;
@@ -10,16 +11,13 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ skill, index }: SkillCardProps) => {
-    const [isVisible, setIsVisible] = useState(false);
+    // Was a plain mount timer, so the stagger played out before the reader ever
+    // scrolled to Skills. Tie it to the viewport like every other section.
+    const [cardRef, isVisible] = useScrollReveal<HTMLDivElement>({ delay: index * 150 });
     const IconComponent = skill.icon;
 
-    useEffect(() => {
-      const timer = setTimeout(() => setIsVisible(true), index * 200);
-      return () => clearTimeout(timer);
-    }, [index]);
-
     return (
-      <div className={`skill-card ${isVisible ? 'skill-card-visible' : ''}`}>
+      <div ref={cardRef} className={`skill-card ${isVisible ? 'skill-card-visible' : ''}`}>
         <div className="skill-icon">
           {skill.brandIcon
             ? <BrandIcon name={skill.brandIcon} size={32} color="white" />

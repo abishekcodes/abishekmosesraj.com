@@ -297,8 +297,10 @@
     position: relative;
     overflow: hidden;
     text-decoration: none;
+    /* Labels stay on one line; the pill grows to fit instead of breaking */
+    white-space: nowrap;
   }
-  
+
   .btn-primary-new {
     background: var(--color-blue);
     color: white;
@@ -591,7 +593,9 @@
     }
 
     .btn-primary-new, .btn-secondary-new {
-      max-width: 180px;
+      /* Size to the label instead of a fixed cap that forced it to wrap */
+      width: auto;
+      max-width: none;
       padding: 0.85rem 1.5rem;
       font-size: 0.9rem;
     }
@@ -769,8 +773,11 @@
     .btn-primary-new, .btn-secondary-new {
       padding: 0.75rem 1rem;
       font-size: 0.8rem;
+      width: 100%;
       max-width: none;
       flex: 1;
+      /* Two pills share a narrow row here, so wrapping beats overflowing */
+      white-space: normal;
     }
 
     .stat-card {

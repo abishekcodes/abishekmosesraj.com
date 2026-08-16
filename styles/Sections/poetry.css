@@ -4,8 +4,7 @@
 /* ============================================================================ */
 
 .poetry {
-    min-height: 100vh;
-    padding: 8rem 2rem;
+    padding: 6rem 2rem;
     background: var(--bg-dark);
     position: relative;
     overflow: hidden;
@@ -45,7 +44,7 @@
 /* Section Header */
 .poetry-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .poetry-eyebrow {

@@ -16,11 +16,11 @@
       font-size: 2.5rem;
     }
     
-    .skills-grid,
-    .projects-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .skill-card,
+    .project-card {
+      flex-basis: 280px;
     }
-    
+
     .timeline-item {
       width: 55%;
     }
@@ -65,9 +65,10 @@
       align-items: center;
     }
   
-    .skills-grid,
-    .projects-grid {
-      grid-template-columns: 1fr;
+    .skill-card,
+    .project-card {
+      flex-basis: 100%;
+      max-width: none;
     }
   }
   

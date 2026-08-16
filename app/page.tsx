@@ -16,6 +16,7 @@ const ReadMore = dynamic(() => import('@/components/Sections/ReadMore'));
 const Experience = dynamic(() => import('@/components/Sections/Experience'));
 const Projects = dynamic(() => import('@/components/Sections/Projects'));
 const Apps = dynamic(() => import('@/components/Sections/Apps'));
+const AppsPreview = dynamic(() => import('@/components/Sections/AppsPreview'));
 const About = dynamic(() => import('@/components/Sections/About'));
 const Articles = dynamic(() => import('@/components/Sections/Articles'));
 const Poetry = dynamic(() => import('@/components/Sections/Poetry'));
@@ -25,7 +26,7 @@ const AppContent = () => {
   const isAppsDomain = useIsAppsDomain();
   const modeSwitchClass = hasSwitched ? 'mode-switch' : '';
 
-  const professionalSections = ['home', 'skills', 'experience', 'projects', 'articles', 'about', 'contact'];
+  const professionalSections = ['home', 'skills', 'experience', 'projects', 'apps', 'articles', 'about', 'contact'];
   const personalSections = ['home', 'poetry', 'contact'];
   const appsDomainSections = ['apps', 'about', 'contact'];
 
@@ -51,6 +52,7 @@ const AppContent = () => {
             <Skills />
             <Experience />
             <Projects />
+            <AppsPreview />
             <Articles />
             <About />
           </div>

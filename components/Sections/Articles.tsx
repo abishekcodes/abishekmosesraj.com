@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import { Cloud, Database, Cpu, ArrowRight, Clock, Flame, ExternalLink, LucideIcon } from 'lucide-react';
 import BrandIcon from '@/components/UI/BrandIcon';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 interface ArticleData {
   id: number;
@@ -63,27 +64,8 @@ interface ArticleProps {
 }
 
 const FeaturedArticle: React.FC<ArticleProps> = ({ article }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [cardRef, isVisible] = useScrollReveal<HTMLAnchorElement>();
   const IconComponent = article.icon;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <a
@@ -136,27 +118,8 @@ interface ArticleCardProps {
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [cardRef, isVisible] = useScrollReveal<HTMLAnchorElement>({ delay: index * 150 });
   const IconComponent = article.icon;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), index * 150);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [index]);
 
   return (
     <a
