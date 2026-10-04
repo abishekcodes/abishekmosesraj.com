@@ -7,16 +7,17 @@ const experienceData: Experience[] = [
     position: 'Senior Consultant',
     duration: 'Jun 2025 - Present | Chennai, India',
     achievements: [
-      'Building production Agentic AI solutions for enterprise clients using LangGraph and CrewAI',
-      'Designing multi-agent systems that turn complex business workflows into reliable automation',
-      'Bringing 9 years of API and cloud experience to make AI systems production-ready, not just impressive demos'
+      'Core team member on a bilingual GenAI banking assistant on WhatsApp and web, serving 1.2M customers',
+      'Feature owner for shared platform features in a 29-member Agile/Scrum team, contributing to the in-house LangGraph workflow engine',
+      'Own intent classification for the assistant, along with its monitoring, evaluation and release process'
     ],
     techStack: [
-      { name: 'Kafka', icon: 'apachekafka' },
-      { name: 'CrewAI', icon: 'openai', custom: true },
-      { name: 'LangChain', icon: 'langchain', custom: true },
+      { name: 'Python', icon: 'python' },
+      { name: 'FastAPI', icon: 'fastapi' },
       { name: 'LangGraph', icon: 'langchain', custom: true },
-      { name: 'FastAPI', icon: 'fastapi' }
+      { name: 'CrewAI', icon: 'openai', custom: true },
+      { name: 'MongoDB', icon: 'mongodb' },
+      { name: 'Kafka', icon: 'apachekafka' }
     ]
   },
   {
@@ -26,7 +27,7 @@ const experienceData: Experience[] = [
     duration: 'Dec 2021 - May 2025 | Chennai, India',
     achievements: [
       'Led a development team of 5 engineers in designing scalable Python-based solutions',
-      'Architected AWS infrastructure achieving 99.9% uptime and improved performance',
+      'Designed AWS infrastructure for high availability and better performance',
       'Implemented DevOps practices with zero-downtime canary deployments',
       'Led cost optimization initiatives, cutting infrastructure costs 50% ($18K to $9K/month)'
     ],
@@ -65,7 +66,7 @@ const experienceData: Experience[] = [
     duration: 'Nov 2016 - May 2019 | Chennai, India',
     achievements: [
       'Performed root cause analysis on data workflow bottlenecks',
-      'Created automation tools, increasing delivery speed by 25%',
+      'Created automation tools, speeding up delivery',
       'Improved quality trends from 88% to 92%',
       'Received the Extra Mile Award for process improvement'
     ],

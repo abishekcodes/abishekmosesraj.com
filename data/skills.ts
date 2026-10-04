@@ -15,7 +15,7 @@ const skillsData: Skill[] = [
     icon: Cloud,
     brandIcon: 'aws',
     title: 'AWS Cloud Architecture',
-    description: 'I design infrastructures that scale and bills that shrink. I cut monthly AWS spend from $18K to $9K while running EC2, S3, Lambda, and ECS workloads at 99.995% uptime.',
+    description: 'I design infrastructures that scale and bills that shrink. I cut monthly AWS spend from $18K to $9K while running EC2, S3, Lambda, and ECS workloads with zero-downtime deployments.',
     metric: '50%',
     metricLabel: 'cloud cost reduction'
   },

@@ -6,6 +6,19 @@
   outline-offset: 2px;
 }
 
+/* Visible keyboard focus for every interactive element, without showing a
+   ring on mouse clicks */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
 
@@ -53,10 +66,6 @@
     animation: none;
   }
 
-  .achievement-badge {
-    animation: none;
-  }
-
   .btn-primary-new:hover,
   .btn-secondary-new:hover {
     transform: none;
@@ -94,7 +103,6 @@
   }
 
   .stat-card,
-  .achievement-badge,
   .tech-preview {
     border: 2px solid rgba(255, 255, 255, 0.5);
   }
@@ -142,8 +150,7 @@
   }
 
   .floating-icon,
-  .tech-icon-item svg,
-  .achievement-badge svg {
+  .tech-icon-item svg {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -182,8 +189,7 @@
     -webkit-text-fill-color: black !important;
   }
 
-  .stat-card,
-  .achievement-badge {
+  .stat-card {
     background: white;
     border: 1px solid #ccc;
   }

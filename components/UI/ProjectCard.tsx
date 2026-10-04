@@ -28,9 +28,6 @@ const ProjectCard = ({ project, index, onCardClick }: ProjectCardProps) => {
           <span className="project-icon">
             <IconComponent size={48} />
           </span>
-          <span className={`project-status ${project.status}`}>
-            {project.status === 'production' ? 'Live' : 'POC'}
-          </span>
         </div>
         <div className="project-content">
           <h3 className="project-title">{project.title}</h3>

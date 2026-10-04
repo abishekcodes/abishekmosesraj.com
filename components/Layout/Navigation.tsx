@@ -40,7 +40,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
     { href: '#projects', label: 'Projects' },
     { href: '#apps', label: 'Apps' },
     { href: '#about', label: 'About Me' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#contact', label: 'Contact' },
+    { href: '/resume.pdf', label: 'Resume', external: true }
   ];
 
   const personalNavItems: NavItem[] = [

@@ -33,7 +33,7 @@ const About: React.FC = () => {
               <p>
                 So I joined <span className="company-name">Roanuz</span>, where a small team was building something ambitious. Over six years,
                 I grew from writing production Python code to leading a team of five engineers,
-                architecting systems that would eventually handle 4 billion API requests. I also worked
+                contributing to systems that would eventually handle 4 billion API requests. I also worked
                 extensively on AWS - building and managing the infrastructure that powered our APIs.
                 Those years taught me everything - from debugging 3 AM production issues to designing
                 billing systems that process real money.

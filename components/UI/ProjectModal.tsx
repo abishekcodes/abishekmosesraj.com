@@ -97,6 +97,7 @@ const ProjectModal = ({ project, isOpen, onClose, onPrev, onNext, currentIndex, 
     <ModalComponent
       isOpen={isOpen}
       onClose={onClose}
+      ariaLabel={project.title}
       onPrev={onPrev}
       onNext={onNext}
       currentIndex={currentIndex}

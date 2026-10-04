@@ -464,6 +464,7 @@ const PoemModal: React.FC<PoemModalProps> = ({ poem, onClose, onPrev, onNext, cu
     <ModalComponent
       isOpen={true}
       onClose={onClose}
+      ariaLabel={isCtaSlide ? 'More poems' : poem?.title}
       onPrev={onPrev}
       onNext={onNext}
       currentIndex={currentIndex}

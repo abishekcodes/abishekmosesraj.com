@@ -1,14 +1,38 @@
-import { CreditCard, TrendingUp, Settings, Boxes } from 'lucide-react';
+import { Bot, CreditCard, TrendingUp, Settings, Boxes } from 'lucide-react';
 import { Project } from '@/types';
 
 const projectsData: Project[] = [
+  {
+    id: 'genai-banking-assistant',
+    icon: Bot,
+    title: 'GenAI Banking Assistant',
+    description: 'Bilingual AI customer-service assistant on WhatsApp and web for a retail bank, serving 1.2M customers.',
+    techStack: ['Python', 'FastAPI', 'LangGraph', 'CrewAI', 'LiteLLM', 'Bedrock Guardrails', 'scikit-learn', 'PyTorch', 'MongoDB', 'Redis', 'Kafka', 'Langfuse'],
+    role: 'Senior Consultant',
+    status: 'production',
+    company: 'Thoughtworks',
+    problem: 'Customers needed 24/7 self-service for everyday banking tasks in English and Hindi, inside the bank\'s strict data-privacy and release-governance controls.',
+    solution: 'Part of the core team since the project began. Contributed to the in-house workflow engine that turns config-defined journeys into LangGraph state machines, and owned intent classification along with its monitoring, evaluation and release process.',
+    impact: [
+      'Serves 1.2M customers on WhatsApp and web',
+      'Around 45 self-service journeys across loans, cards and accounts',
+      'New journeys added through configuration'
+    ],
+    highlights: [
+      'Understands Hinglish, typos and short replies',
+      '"Did you mean...?" options when unsure',
+      'Multiple requests, follow-ups and human handoff',
+      'Verification, MFA, PII protection and AI safety checks'
+    ],
+    learnings: 'Learned to ship GenAI in a regulated environment, where privacy, evaluation and controlled releases matter as much as the model.'
+  },
   {
     id: 'api-billing-system',
     icon: CreditCard,
     title: 'API Billing System',
     description: 'Usage-based billing system for sports data APIs with Stripe and Razorpay payment gateway integrations.',
     techStack: ['Python', 'Flask', 'DynamoDB', 'EventBridge', 'Lambda'],
-    role: 'Software Developer',
+    role: 'Software Engineer',
     status: 'production',
     company: 'Roanuz',
     liveUrl: 'https://www.cricketapi.com/v5/package-pricing',
@@ -40,7 +64,7 @@ const projectsData: Project[] = [
     problem: 'Live sports coverage required real-time data entry with multiple editors working simultaneously. The legacy system had latency issues.',
     solution: 'Led a team of 5 engineers, driving code reviews and technical mentorship. Collaborated on system design and defined backend API contracts. Coordinated infrastructure setup and migration planning with minimal downtime.',
     impact: [
-      '30% faster data entry compared to legacy system',
+      'Faster data entry compared to the legacy system',
       'Sub-second latency for live updates',
       'Supports concurrent editors'
     ],
@@ -58,7 +82,7 @@ const projectsData: Project[] = [
     title: 'CI/CD Pipeline',
     description: 'CI/CD pipeline for deploying frontend, backend, and Lambda functions with canary deployments.',
     techStack: ['AWS ECR', 'AWS ECS', 'Lambda', 'Docker', 'CDK', 'CodePipeline', 'CodeDeploy'],
-    role: 'Software Developer',
+    role: 'Software Engineer',
     status: 'production',
     company: 'Roanuz',
     problem: 'Deployments were manual, error-prone, and caused downtime. The team needed reliable frequent deployments.',

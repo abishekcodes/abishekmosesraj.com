@@ -203,11 +203,6 @@
       font-size: 1.3rem;
     }
   
-    .achievement-badge {
-      padding: 0.4rem 0.6rem;
-      font-size: 0.7rem;
-    }
-  
     .tech-preview {
       padding: 0.8rem;
     }
@@ -234,8 +229,7 @@
     }
   
     .floating-icon,
-    .tech-icon-item svg,
-    .achievement-badge svg {
+    .tech-icon-item svg {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }

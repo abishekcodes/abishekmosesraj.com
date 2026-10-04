@@ -89,7 +89,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: inherit;
+    line-height: normal;
   }
 
   .nav-external-icon {

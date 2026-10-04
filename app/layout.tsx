@@ -25,15 +25,15 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: 'Abishek Moses Raj - Tech Lead & AWS Cloud Architect | Chennai',
-  description: 'Tech Lead with 9 years building scalable Python applications and AWS cloud architectures. Expert in FastAPI, LangGraph, AI agents at Thoughtworks. Previously led engineering teams at Roanuz.',
-  keywords: 'Abishek Moses Raj, Tech Lead Chennai, AWS Cloud Architect, Python Developer, LangGraph, AI Agents, FastAPI, DevOps Engineer Chennai, Thoughtworks, Roanuz, CricketAPI',
+  title: 'Abishek Moses Raj - Senior Python & GenAI Engineer | Tech Lead | Chennai',
+  description: 'Senior Python developer and Tech Lead with 9 years in tech. Building a GenAI banking assistant at Thoughtworks with LangGraph and FastAPI. Previously led engineering teams at Roanuz.',
+  keywords: 'Abishek Moses Raj, Senior Python Developer, GenAI Engineer, Tech Lead Chennai, AWS Cloud Architect, Python Developer, LangGraph, AI Agents, FastAPI, DevOps Engineer Chennai, Thoughtworks, Roanuz, CricketAPI',
   authors: [{ name: 'Abishek Moses Raj' }],
   robots: 'index, follow',
   openGraph: {
     type: 'website',
-    title: 'Abishek Moses Raj - Tech Lead & AWS Cloud Architect',
-    description: 'Tech Lead with 9 years building scalable Python applications and AWS cloud architectures. Expert in FastAPI, LangGraph, and AI agents.',
+    title: 'Abishek Moses Raj - Senior Python & GenAI Engineer | Tech Lead',
+    description: 'Senior Python developer and Tech Lead with 9 years in tech, building production GenAI with LangGraph and FastAPI.',
     url: 'https://abishekmosesraj.com',
     siteName: 'Abishek Moses Raj Portfolio',
     images: [
@@ -48,8 +48,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Abishek Moses Raj - Tech Lead & AWS Cloud Architect',
-    description: 'Tech Lead with 9 years building scalable Python applications and AWS cloud architectures.',
+    title: 'Abishek Moses Raj - Senior Python & GenAI Engineer | Tech Lead',
+    description: 'Senior Python developer and Tech Lead with 9 years in tech, building production GenAI.',
     images: ['https://abishekmosesraj.com/apple-touch-icon.png'],
   },
   icons: {
@@ -99,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@type': 'Person',
               name: 'Abishek Moses Raj',
               jobTitle: 'Senior Consultant',
-              description: 'Tech Lead with 9 years building scalable Python applications and AWS cloud architectures. Expert in FastAPI, LangGraph, and AI agents.',
+              description: 'Senior Python developer and Tech Lead with 9 years in tech, building production GenAI with LangGraph and FastAPI.',
               url: 'https://abishekmosesraj.com',
               email: 'mailto:contact@abishekmosesraj.com',
               sameAs: [

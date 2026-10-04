@@ -35,12 +35,6 @@ interface TechIcon {
   name: string;
 }
 
-interface Achievement {
-  icon: LucideIcon;
-  text: string;
-  color: string;
-}
-
 interface DescriptionLine {
   icon: LucideIcon;
   text: React.ReactNode;
@@ -54,6 +48,7 @@ const Hero = () => {
 
   const roles = [
     { title: "Tech Lead", category: "leadership", article: "a" },
+    { title: "GenAI Engineer", category: "development", article: "a" },
     { title: "AWS Cloud Architect", category: "cloud", article: "an" },
     { title: "Python Developer", category: "development", article: "a" },
     { title: "DevOps Engineer", category: "development", article: "a" },
@@ -63,9 +58,15 @@ const Hero = () => {
   const roleDescriptions: DescriptionLine[][] = [
     // Tech Lead
     [
-      { icon: Users,     text: <>Led a <strong>5-engineer team</strong> delivering systems that processed 4B+ API requests</> },
+      { icon: Users,     text: <>Led a <strong>5-engineer team</strong> at Roanuz, contributing to systems that served 4B+ API requests</> },
       { icon: Rocket,    text: <>Shipped <strong>zero-downtime deployments</strong> and billing systems handling real money at scale</> },
       { icon: TrendingUp,text: <>Drove engineering culture through <strong>code reviews, mentoring</strong> and cross-functional ownership</> },
+    ],
+    // GenAI Engineer
+    [
+      { icon: Bot,       text: <>Core team member on a <strong>GenAI banking assistant</strong> serving 1.2M customers</> },
+      { icon: Workflow,  text: <>Contributing to a <strong>LangGraph workflow engine</strong> that turns config into multi-turn journeys</> },
+      { icon: Cpu,       text: <>Own <strong>intent classification</strong>, with its monitoring, evaluation and release process</> },
     ],
     // AWS Cloud Architect
     [
@@ -77,7 +78,7 @@ const Hero = () => {
     [
       { icon: Code,      text: <>Contributed to <strong>REST & GraphQL APIs</strong> with Flask, Aiohttp & Ariadne handling 50K req/hour</> },
       { icon: Database,  text: <>Engineered pipelines on <strong>Cassandra, DynamoDB & Redshift</strong> storing 13 years of cricket data</> },
-      { icon: Cpu,       text: <>Delivered <strong>high-performance Python services</strong> powering CricketAPI's 4B+ lifetime requests</> },
+      { icon: Cpu,       text: <>Contributed to <strong>high-performance Python services</strong> behind CricketAPI's 4B+ lifetime requests</> },
     ],
     // DevOps Engineer
     [
@@ -88,7 +89,7 @@ const Hero = () => {
     // Mentor
     [
       { icon: Users,     text: <>Grew a <strong>5-engineer team</strong> from juniors to independent contributors at Roanuz</> },
-      { icon: Code,      text: <>Established <strong>code review culture</strong> and engineering best practices org-wide</> },
+      { icon: Code,      text: <>Established <strong>code review culture</strong> and engineering best practices across the team</> },
       { icon: TrendingUp,text: <>Guided engineers from <strong>concept to production</strong> on systems used by millions</> },
     ],
   ];
@@ -97,7 +98,7 @@ const Hero = () => {
     { icon: Zap, color: "#009688", name: "FastAPI" },
     { icon: Workflow, color: "#FF6F00", name: "LangGraph" },
     { icon: Bot, color: "#7C4DFF", name: "CrewAI" },
-    { icon: GitBranch, color: "#326CE5", name: "Kubernetes" }
+    { brandIcon: "python", color: "#3776AB", name: "Python" }
   ];
 
   // Floating background icons covering all skillsets
@@ -135,13 +136,6 @@ const Hero = () => {
     { icon: Terminal, color: "#FF9800", name: "Terminal2" },
     { icon: Settings, color: "#795548", name: "DevOps2" },
     { icon: Rocket, color: "#E91E63", name: "Deploy2" }
-  ];
-
-  const achievements: Achievement[] = [
-    { icon: Rocket, text: "Zero-downtime canary deployments", color: "#FF6B6B" },
-    { icon: TrendingUp, text: "50% AWS cost reduction ($18K to $9K)", color: "#4ECDC4" },
-    { icon: Users, text: "Led 5-engineer cross-functional teams", color: "#45B7D1" },
-    { icon: Settings, text: "4B+ API requests processed (2019-2025)", color: "#96CEB4" }
   ];
 
   useEffect(() => {
@@ -241,31 +235,12 @@ const Hero = () => {
           <div className="stats-container">
             <div className="stat-card">
               <div className="stat-number">{YEARS_OF_EXPERIENCE}</div>
-              <div className="stat-label">Years Experience</div>
+              <div className="stat-label">Years in Tech</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">4B+</div>
               <div className="stat-label">API Requests Served</div>
             </div>
-          </div>
-
-          <div className="achievement-badges">
-            {achievements.map((achievement, index) => {
-              const IconComponent = achievement.icon;
-              return (
-                <div
-                  key={index}
-                  className="achievement-badge"
-                  style={{
-                    animationDelay: `${index * 0.2}s`,
-                    '--badge-color': achievement.color
-                  } as CSSProperties}
-                >
-                  <IconComponent size={16} />
-                  <span>{achievement.text}</span>
-                </div>
-              );
-            })}
           </div>
 
           <div className="tech-preview">
@@ -294,6 +269,7 @@ const Hero = () => {
       <ModalComponent
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
+        ariaLabel="Contact options"
         onPrev={null}
         onNext={null}
         currentIndex={0}

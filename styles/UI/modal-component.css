@@ -687,3 +687,8 @@
         font-size: 0.7rem;
     }
 }
+
+/* The dialog takes programmatic focus on open; it isn't a control itself */
+.modal-component:focus {
+  outline: none;
+}

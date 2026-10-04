@@ -49,6 +49,8 @@ interface ModalComponentProps {
   onSwipeDirectionChange?: (direction: 'left' | 'right' | null) => void;
   /** Additional class for content wrapper (for animation states) */
   contentClassName?: string;
+  /** Accessible name announced by screen readers when the dialog opens */
+  ariaLabel?: string;
 }
 
 const defaultConfig: ModalConfig = {
@@ -89,6 +91,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   nextButtonOverride,
   onSwipeDirectionChange,
   contentClassName,
+  ariaLabel,
 }) => {
   const mergedConfig = { ...defaultConfig, ...config };
   const {
@@ -107,10 +110,41 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const modalBodyRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Move focus into the dialog on open and hand it back to whatever opened it
+  // on close, so keyboard users don't lose their place on the page.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+    return () => previouslyFocused?.focus?.();
+  }, [isOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      // Keep Tab cycling within the modal (side nav buttons sit on the backdrop)
+      if (e.key === 'Tab' && backdropRef.current) {
+        const focusable = Array.from(
+          backdropRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const active = document.activeElement;
+        const inside = backdropRef.current.contains(active);
+        if (e.shiftKey && (active === first || !inside || active === dialogRef.current)) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && (active === last || !inside)) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
       if (e.key === 'ArrowLeft' && onPrev) onPrev();
       if (e.key === 'ArrowRight' && onNext) onNext();
       if (e.key === 'ArrowDown') {
@@ -195,7 +229,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   };
 
   return (
-    <div className={backdropClass} onClick={handleBackdropClick}>
+    <div className={backdropClass} onClick={handleBackdropClick} ref={backdropRef}>
       {/* Side navigation - Previous */}
       {showSideNav && onPrev && (
         <button
@@ -208,6 +242,11 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
       )}
 
       <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={ariaLabel}
+        tabIndex={-1}
         className={containerClass}
         style={{ maxWidth: getMaxWidthStyle(maxWidth) }}
         onTouchStart={handleTouchStart}
