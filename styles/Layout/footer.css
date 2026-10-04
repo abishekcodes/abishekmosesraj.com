@@ -2,7 +2,7 @@
     padding: 4rem 2rem 3rem;
     text-align: center;
     background: var(--bg-dark);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.1);
 }
 
 .footer-pitch {
@@ -146,4 +146,57 @@
     .social-text {
         font-size: 0.75rem;
     }
+}
+/* Light theme: the blue-to-green gradient turns muddy on white, so the
+   heading goes solid like the other section titles with one accent phrase */
+:root[data-theme="light"] .footer-pitch-title {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: #0F172A;
+}
+
+:root[data-theme="light"] .footer-pitch-accent {
+    color: #1D4ED8;
+}
+
+/* Light theme: outlined social buttons with brand-coloured icons instead of
+   four different solid fills */
+:root[data-theme="light"] .social-icon-circle {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+:root[data-theme="light"] .social-icon-circle.email { color: #B45309; }
+:root[data-theme="light"] .social-icon-circle.linkedin { color: #0A66C2; }
+:root[data-theme="light"] .social-icon-circle.github,
+:root[data-theme="light"] .social-icon-circle.medium { color: #0F172A; }
+:root[data-theme="light"] .social-icon-circle.apps-link { color: #15803D; }
+
+:root[data-theme="light"] .social-connect:hover .social-icon-circle {
+    background: #FFFFFF;
+    border-color: #93C5FD;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.10);
+}
+
+/* Light theme poetry footer: warm rule and cream outlined socials */
+:root[data-theme="light"] .personal-mode .footer {
+    border-top-color: #E9E1D2;
+}
+
+:root[data-theme="light"] .personal-mode .social-icon-circle {
+    background: #FFFDF8;
+    border-color: #E9E1D2;
+    color: #3F3A33;
+}
+
+:root[data-theme="light"] .personal-mode .social-connect:hover .social-icon-circle {
+    background: #FFFDF8;
+    border-color: #1E3A8A;
+    color: #1E3A8A;
+}
+
+:root[data-theme="light"] .personal-mode .social-text,
+:root[data-theme="light"] .personal-mode .footer-text {
+    color: #6B6254;
 }

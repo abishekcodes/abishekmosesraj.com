@@ -272,17 +272,17 @@
 /* Experience Card */
 .timeline-card {
     flex: 1;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     border-radius: 24px;
     padding: 2.5rem;
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .timeline-item.revealed .timeline-card {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(var(--ink-rgb), 0.04);
 }
 
 .timeline-card:hover {
@@ -402,8 +402,8 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.5rem 0.875rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.03);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     border-radius: 24px;
     backdrop-filter: blur(12px);
     opacity: 0;
@@ -484,7 +484,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--ink-rgb), 0.05);
     padding: 4px;
     transition: all 0.3s ease;
 }
@@ -500,14 +500,14 @@
 .tech-icon-svg {
     width: 100%;
     height: 100%;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(var(--ink-rgb), 0.85);
     transition: all 0.3s ease;
 }
 
 /* FontAwesome icons (JavaScript) */
 .tech-icon-fa {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(var(--ink-rgb), 0.85);
     transition: all 0.3s ease;
 }
 
@@ -536,7 +536,7 @@
 }
 
 .tech-badge:hover .tech-icon-wrapper {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
 }
 
 .tech-badge:hover .tech-icon {
@@ -788,4 +788,84 @@
     .timeline-achievements li {
         font-size: 0.85rem;
     }
+}
+
+/* Light theme timeline: slate spine with the blue carried by the year dots,
+   crisp ringed dots instead of a glow, white chips, and one accent colour in
+   the cards (blue company name, near-black title, slate dates) */
+:root[data-theme="light"] .timeline::before {
+    background: linear-gradient(to bottom, transparent, #CBD5E1 5%, #CBD5E1 95%, transparent);
+}
+
+:root[data-theme="light"] .timeline-dot {
+    background: #FFFFFF;
+    border-color: #BFDBFE;
+}
+
+:root[data-theme="light"] .timeline-item.revealed .timeline-dot {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 4px #EFF6FF, 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+
+:root[data-theme="light"] .timeline-item.revealed .timeline-dot::before {
+    display: none;
+}
+
+:root[data-theme="light"] .dot-year {
+    color: #1D4ED8;
+}
+
+:root[data-theme="light"] .timeline-connector {
+    background: #93C5FD;
+}
+
+:root[data-theme="light"] .company-name {
+    color: #1D4ED8;
+    font-weight: 700;
+}
+
+:root[data-theme="light"] .job-title {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+:root[data-theme="light"] .job-duration {
+    color: #64748B;
+}
+
+:root[data-theme="light"] .timeline-achievements li {
+    color: #334155;
+}
+
+:root[data-theme="light"] .timeline-achievements li:hover {
+    color: #0F172A;
+}
+
+:root[data-theme="light"] .timeline-achievements li::before {
+    background: #2563EB;
+}
+
+:root[data-theme="light"] .tech-badge {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    backdrop-filter: none;
+}
+
+:root[data-theme="light"] .tech-icon-wrapper {
+    background: #F1F5F9;
+}
+
+:root[data-theme="light"] .tech-icon {
+    /* the monochrome devicons are drawn white for dark mode; render them dark */
+    filter: brightness(0) opacity(0.8);
+}
+
+:root[data-theme="light"] .tech-name {
+    color: #334155;
+}
+
+:root[data-theme="light"] .timeline-item.timeline-left .tech-badge::before,
+:root[data-theme="light"] .timeline-item.timeline-right .tech-badge::before {
+    background: #CBD5E1;
 }

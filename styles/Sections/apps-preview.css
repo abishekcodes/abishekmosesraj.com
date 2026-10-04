@@ -74,10 +74,10 @@
     display: flex;
     flex-direction: column;
     padding: 1.75rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     border-radius: 20px;
     text-decoration: none;
     opacity: 0;
@@ -96,7 +96,7 @@
 
 .app-preview-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(var(--shadow-rgb), 0.3);
 }
 
 .app-preview-card-blue:hover {
@@ -121,8 +121,8 @@
     width: 56px;
     height: 56px;
     border-radius: 14px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 16px rgba(var(--shadow-rgb), 0.35);
+    border: 1px solid rgba(var(--ink-rgb), 0.12);
 }
 
 .app-preview-status {
@@ -212,7 +212,7 @@
     width: fit-content;
     margin: 2.5rem auto 0;
     padding: 0.75rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(var(--ink-rgb), 0.12);
     border-radius: 50px;
     color: var(--text-primary);
     font-size: 0.9rem;
@@ -261,4 +261,16 @@
     .apps-preview-all:hover {
         transform: none;
     }
+}
+
+/* Light theme: soft green LIVE pill instead of neon mint, lighter logo shadow */
+:root[data-theme="light"] .app-preview-status {
+    background: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .app-preview-logo {
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
 }

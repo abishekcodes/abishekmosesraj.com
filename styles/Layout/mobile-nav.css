@@ -16,7 +16,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(var(--canvas-rgb), 0.6);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     z-index: 998;
@@ -46,8 +46,8 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.7rem 1.25rem;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(var(--surface-30-rgb), 0.95) 0%, rgba(var(--surface-20-rgb), 0.98) 100%);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     border-radius: 50px;
     color: var(--text-primary);
     font-size: 0.85rem;
@@ -55,9 +55,9 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 4px 20px rgba(var(--canvas-rgb), 0.4),
+        0 0 0 1px rgba(var(--ink-rgb), 0.05),
+        inset 0 1px 0 rgba(var(--ink-rgb), 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -96,14 +96,14 @@
     gap: 4px;
     margin-left: 0.25rem;
     padding-left: 0.5rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(var(--ink-rgb), 0.15);
 }
 
 .pill-dot {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(var(--ink-rgb), 0.2);
     transition: all 0.3s ease;
 }
 
@@ -133,12 +133,12 @@
     flex-direction: column;
     gap: 0.4rem;
     padding: 0.75rem;
-    background: linear-gradient(135deg, rgba(25, 25, 25, 0.98) 0%, rgba(15, 15, 15, 0.99) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(var(--surface-25-rgb), 0.98) 0%, rgba(var(--surface-15-rgb), 0.99) 100%);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     border-radius: 16px;
     box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 10px 40px rgba(var(--canvas-rgb), 0.5),
+        0 0 0 1px rgba(var(--ink-rgb), 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     min-width: 180px;
@@ -177,7 +177,7 @@
 }
 
 .mobile-nav-item:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--ink-rgb), 0.05);
     color: var(--text-primary);
 }
 

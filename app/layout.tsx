@@ -67,8 +67,18 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${lato.variable} ${pinyonScript.variable} ${cormorant.variable}`}>
+    // data-theme is written by the inline script below before React hydrates,
+    // so the server markup can't match it
+    <html lang="en" className={`${lato.variable} ${pinyonScript.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <head>
+        {/* Pick the theme before first paint (saved choice, else the system
+            preference) so a light-mode visitor never sees a dark flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}",
+          }}
+        />
+
         {/* Preconnect for Medium CDN (poem thumbnails) */}
         <link rel="preconnect" href="https://miro.medium.com" crossOrigin="anonymous" />
 

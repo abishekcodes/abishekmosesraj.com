@@ -72,12 +72,12 @@
 
 /* App Card */
 .app-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
     opacity: 0;
@@ -93,7 +93,7 @@
 
 .app-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(var(--shadow-rgb), 0.3);
 }
 
 .app-card-blue:hover {
@@ -127,8 +127,8 @@
     width: 84px;
     height: 84px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(var(--shadow-rgb), 0.35);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
 }
 
 .app-card-status {
@@ -229,8 +229,8 @@
     gap: 0.5rem;
     margin-bottom: 1.25rem;
     padding: 0.6rem 0.9rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.03);
+    border: 1px solid rgba(var(--ink-rgb), 0.08);
     border-radius: 12px;
     color: var(--text-muted);
     font-size: 0.8rem;
@@ -508,4 +508,16 @@
     .app-card-content {
         padding: 1rem;
     }
+}
+
+/* Light theme: soft green LIVE pill instead of neon mint, lighter logo shadow */
+:root[data-theme="light"] .app-card-status {
+    background: #DCFCE7;
+    color: #166534;
+    border: 1px solid #BBF7D0;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .app-card-logo {
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
 }

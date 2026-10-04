@@ -49,6 +49,24 @@
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
 
+  /* Theme channels, used as rgba(var(--x-rgb), alpha) so one set of rules
+     serves both themes. ink tints surfaces toward the text colour, canvas
+     toward the page, surface-N are the near-black panels (nav, menus, modals)
+     named after their dark-theme grey level. */
+  --ink-rgb: 255, 255, 255;
+  --canvas-rgb: 0, 0, 0;
+  --shadow-rgb: 0, 0, 0;
+  --surface-10-rgb: 10, 10, 10;
+  --surface-13-rgb: 13, 13, 13;
+  --surface-15-rgb: 15, 15, 15;
+  --surface-20-rgb: 20, 20, 20;
+  --surface-25-rgb: 25, 25, 25;
+  --surface-26-rgb: 26, 26, 26;
+  --surface-30-rgb: 30, 30, 30;
+  --surface-40-rgb: 40, 40, 40;
+  --modal-top: #1a1a1a;
+  --modal-bottom: #0d0d0d;
+
   /* RGB Gradients */
   --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #22C55E 100%);
   --gradient-secondary: linear-gradient(135deg, #22C55E 0%, #3B82F6 100%);
@@ -68,6 +86,67 @@
 }
 
 /* ============================================================================ */
+/* LIGHT THEME                                                                  */
+/* data-theme is set on <html> before first paint by the inline script in       */
+/* layout.tsx (saved choice, else the system preference). Without JS the        */
+/* attribute is absent and the dark defaults above apply.                       */
+/* ============================================================================ */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Accents darkened so they pass WCAG contrast as text on white. The
+     "-light" variants are used as highlight text on dark, so on a light
+     background they go darker, not lighter. */
+  --color-gold: #B45309;
+  --color-gold-light: #B45309;
+  --color-gold-dark: #92400E;
+  --color-green: #15803D;
+  --color-green-light: #166534;
+  --color-green-dark: #166534;
+  --color-blue: #2563EB;
+  --color-blue-light: #1D4ED8;
+  --color-blue-dark: #1E40AF;
+  --primary-color: #2563EB;
+  --primary-light: #1D4ED8;
+  --primary-dark: #1E40AF;
+  --secondary-color: #15803D;
+  --accent-color: #B45309;
+
+  --gradient-primary: linear-gradient(135deg, #1D4ED8 0%, #15803D 100%);
+  --gradient-secondary: linear-gradient(135deg, #15803D 0%, #1D4ED8 100%);
+  --gradient-accent: linear-gradient(135deg, #B45309 0%, #1D4ED8 100%);
+  --gradient-rgb: linear-gradient(135deg, #B45309 0%, #15803D 50%, #1D4ED8 100%);
+  --gradient-rgb-reverse: linear-gradient(135deg, #1D4ED8 0%, #15803D 50%, #B45309 100%);
+
+  --bg-dark: #F8FAFC;
+  --bg-dark-secondary: #F1F5F9;
+  --bg-card: #FFFFFF;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #556274;
+
+  --ink-rgb: 15, 23, 42;
+  --canvas-rgb: 255, 255, 255;
+  --shadow-rgb: 100, 116, 139;
+  --surface-10-rgb: 255, 255, 255;
+  --surface-13-rgb: 255, 255, 255;
+  --surface-15-rgb: 255, 255, 255;
+  --surface-20-rgb: 255, 255, 255;
+  --surface-25-rgb: 255, 255, 255;
+  --surface-26-rgb: 255, 255, 255;
+  --surface-30-rgb: 248, 250, 252;
+  --surface-40-rgb: 248, 250, 252;
+  --modal-top: #FFFFFF;
+  --modal-bottom: #F8FAFC;
+
+  --glow-color: rgba(37, 99, 235, 0.18);
+  --glow-gold: rgba(217, 119, 6, 0.18);
+  --glow-green: rgba(22, 163, 74, 0.18);
+  --glow-blue: rgba(37, 99, 235, 0.18);
+}
+
+/* ============================================================================ */
 /* PERSONAL / POETRY MODE                                                       */
 /* The poetry side shares the professional color theme (blue accents on black); */
 /* its identity comes from typography, ornaments and texture instead. Only      */
@@ -80,6 +159,91 @@
 
   /* Shared paper-grain texture (used by the personal hero and poetry section) */
   --poetry-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Light theme surfaces: cards are white with a defined edge rather than a
+   faint ink tint (which reads as dirty grey on a light page), section glow
+   washes are dropped, and sections alternate white / off-white */
+:root[data-theme="light"] .skill-card,
+:root[data-theme="light"] .timeline-card,
+:root[data-theme="light"] .app-preview-card,
+:root[data-theme="light"] .app-card,
+:root[data-theme="light"] .story-card,
+:root[data-theme="light"] .highlight-card,
+:root[data-theme="light"] .stat-card,
+:root[data-theme="light"] .tech-preview {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root[data-theme="light"] .skill-card:hover,
+:root[data-theme="light"] .timeline-card:hover,
+:root[data-theme="light"] .app-preview-card:hover,
+:root[data-theme="light"] .app-card:hover,
+:root[data-theme="light"] .story-card:hover,
+:root[data-theme="light"] .highlight-card:hover {
+  background: #FFFFFF;
+  border-color: #BFDBFE;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .tech-icon-item {
+  background: #F8FAFC;
+  border: 1px solid #EEF2F6;
+}
+
+:root[data-theme="light"] .skills::before,
+:root[data-theme="light"] .experience::before,
+:root[data-theme="light"] .projects::before,
+:root[data-theme="light"] .apps-preview::before,
+:root[data-theme="light"] .apps::before,
+:root[data-theme="light"] .articles::before,
+:root[data-theme="light"] .about::before {
+  display: none;
+}
+
+:root[data-theme="light"] .skills,
+:root[data-theme="light"] .projects,
+:root[data-theme="light"] .articles {
+  background: #FFFFFF;
+}
+
+:root[data-theme="light"] .experience,
+:root[data-theme="light"] .apps-preview,
+:root[data-theme="light"] .about {
+  background: #F8FAFC;
+}
+
+/* Poetry in light theme: warm paper instead of cool slate */
+:root[data-theme="light"] .App.personal-mode {
+  --poetry-card: #FFFDF8;
+  --poetry-card-deep: #F6F0E4;
+  --bg-dark: #FBF8F1;
+  --bg-dark-secondary: #F5EFE3;
+  --modal-top: #FFFDF8;
+  --modal-bottom: #FAF5EA;
+  --surface-30-rgb: 250, 245, 234;
+  --surface-40-rgb: 250, 245, 234;
+
+  /* Ink navy instead of the site's app blue, so accents read like ink on a
+     manuscript; oxblood is a second accent for small bookish touches */
+  --color-blue: #1E3A8A;
+  --color-blue-light: #3730A3;
+  --color-blue-dark: #172554;
+  --primary-color: #1E3A8A;
+  --primary-light: #3730A3;
+  --primary-dark: #172554;
+  --glow-blue: rgba(30, 58, 138, 0.15);
+  --poetry-oxblood: #7F1D1D;
+  --poetry-rule: #E9E1D2;
+  --poetry-muted: #6B6254;
+}
+
+:root[data-theme="light"] body:has(.App.personal-mode) {
+  background: #FBF8F1;
 }
 
 /* Crossing between the professional and personal worlds: the incoming view

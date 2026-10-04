@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="container">
           {isProfessional && !isAppsDomain && (
             <div className="footer-pitch">
-              <h2 className="footer-pitch-title">Let's Build Something That Scales</h2>
+              <h2 className="footer-pitch-title">Let's Build Something <span className="footer-pitch-accent">That Scales</span></h2>
               <p className="footer-pitch-text">
                 From AI agents to cloud architecture: if you need someone who has shipped it,
                 run it in production, and kept it running, let's talk.

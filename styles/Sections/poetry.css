@@ -232,7 +232,7 @@
     border-color: rgba(59, 130, 246, 0.45);
     transform: translateY(-6px) rotate(0deg);
     box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.5),
+        0 18px 40px rgba(var(--canvas-rgb), 0.5),
         0 0 30px rgba(59, 130, 246, 0.08);
 }
 
@@ -537,17 +537,17 @@
    (.modal-component-backdrop in styles/UI/modal-component.css) */
 
 .poem-modal {
-    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    background: linear-gradient(180deg, var(--modal-top) 0%, var(--modal-bottom) 100%);
     border-radius: 16px;
     max-width: 520px;
     width: 100%;
     max-height: 85vh;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.08);
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 30px 60px rgba(var(--canvas-rgb), 0.6),
+        0 0 0 1px rgba(var(--ink-rgb), 0.05);
     animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -569,8 +569,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     color: var(--text-secondary);
     font-size: 1.25rem;
     cursor: pointer;
@@ -582,7 +582,7 @@
 }
 
 .poem-modal-close:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(var(--ink-rgb), 0.12);
     color: var(--text-primary);
     transform: rotate(90deg);
 }
@@ -604,9 +604,9 @@
     justify-content: space-between;
     padding: 1rem 1.5rem;
     background: linear-gradient(to bottom,
-        rgba(26, 26, 26, 0.98) 0%,
-        rgba(26, 26, 26, 0.95) 60%,
-        rgba(26, 26, 26, 0) 100%
+        rgba(var(--surface-26-rgb), 0.98) 0%,
+        rgba(var(--surface-26-rgb), 0.95) 60%,
+        rgba(var(--surface-26-rgb), 0) 100%
     );
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -669,8 +669,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     color: var(--text-secondary);
     font-size: 1.4rem;
     font-weight: 300;
@@ -683,7 +683,7 @@
 }
 
 .poem-modal-sticky-close:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.15);
     color: var(--text-primary);
     transform: rotate(90deg);
 }
@@ -797,7 +797,7 @@
     left: 0;
     right: 0;
     height: 80px;
-    background: linear-gradient(to top, #1a1a1a, transparent);
+    background: linear-gradient(to top, var(--modal-top), transparent);
 }
 
 .poem-modal-image img {
@@ -815,7 +815,7 @@
     font-style: italic;
     color: var(--text-muted);
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
     margin-bottom: 1.5rem;
 }
 
@@ -964,8 +964,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     color: var(--text-secondary);
     font-size: 1.4rem;
     font-weight: 300;
@@ -978,7 +978,7 @@
 }
 
 .poem-modal-cta-close:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.15);
     color: var(--text-primary);
 }
 
@@ -1016,7 +1016,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.08);
     margin-top: 2rem;
 }
 
@@ -1090,7 +1090,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+    background: linear-gradient(135deg, rgba(var(--surface-30-rgb), 0.95) 0%, rgba(var(--surface-20-rgb), 0.98) 100%);
     border: 2px solid rgba(59, 130, 246, 0.3);
     color: var(--color-blue);
     font-size: 1.75rem;
@@ -1101,9 +1101,9 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 10;
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 4px 20px rgba(var(--canvas-rgb), 0.4),
         0 0 30px rgba(59, 130, 246, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        inset 0 1px 0 rgba(var(--ink-rgb), 0.05);
     overflow: hidden;
 }
 
@@ -1127,14 +1127,14 @@
 }
 
 .poem-modal-nav:hover {
-    background: linear-gradient(135deg, rgba(40, 40, 40, 1) 0%, rgba(25, 25, 25, 1) 100%);
+    background: linear-gradient(135deg, rgba(var(--surface-40-rgb), 1) 0%, rgba(var(--surface-25-rgb), 1) 100%);
     border-color: var(--color-blue);
     color: var(--color-blue-light);
     transform: translateY(-50%) scale(1.15);
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 8px 30px rgba(var(--canvas-rgb), 0.5),
         0 0 40px rgba(59, 130, 246, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        inset 0 1px 0 rgba(var(--ink-rgb), 0.1);
 }
 
 .poem-modal-nav:hover .nav-pulse {
@@ -1238,7 +1238,7 @@
         transform: translateX(-50%);
         width: 36px;
         height: 4px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(var(--ink-rgb), 0.3);
         border-radius: 2px;
         z-index: 20;
     }
@@ -1289,9 +1289,9 @@
         width: 100%;
         z-index: 200;
         background: linear-gradient(to bottom,
-            rgba(13, 13, 13, 0.98) 0%,
-            rgba(13, 13, 13, 0.95) 70%,
-            rgba(13, 13, 13, 0) 100%
+            rgba(var(--surface-13-rgb), 0.98) 0%,
+            rgba(var(--surface-13-rgb), 0.95) 70%,
+            rgba(var(--surface-13-rgb), 0) 100%
         );
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -1400,8 +1400,8 @@
         padding: 0.75rem 1rem;
         padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
         margin-top: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        background: linear-gradient(to top, rgba(13, 13, 13, 0.98) 0%, rgba(13, 13, 13, 0.95) 100%);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+        background: linear-gradient(to top, rgba(var(--surface-13-rgb), 0.98) 0%, rgba(var(--surface-13-rgb), 0.95) 100%);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         z-index: 100;
@@ -1458,8 +1458,8 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(var(--ink-rgb), 0.1);
+        border: 1px solid rgba(var(--ink-rgb), 0.2);
         color: var(--text-primary);
         font-size: 1.5rem;
         font-weight: 300;
@@ -1469,7 +1469,7 @@
     }
 
     .poem-modal-footer-close:active {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(var(--ink-rgb), 0.2);
         transform: scale(0.95);
     }
 
@@ -1640,4 +1640,133 @@
         padding: 0.45rem 0.85rem;
         font-size: 0.75rem;
     }
+}
+
+
+/* Light theme: drop the dark-mode glow behind the script title */
+:root[data-theme="light"] .poetry-title {
+    text-shadow: none;
+}
+
+/* ============================================================================ */
+/* LIGHT THEME: paper and ink                                                   */
+/* Accent tokens are re-pointed to ink navy on .App.personal-mode (globals.css) */
+/* ============================================================================ */
+:root[data-theme="light"] .poetry::before {
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+}
+
+/* The giant quote mark becomes a paper-toned watermark */
+:root[data-theme="light"] .poetry::after {
+    color: #EADFC8;
+    opacity: 0.6;
+}
+
+:root[data-theme="light"] .poetry-eyebrow {
+    color: #3730A3;
+}
+
+:root[data-theme="light"] .poetry-title::after {
+    -webkit-text-fill-color: var(--poetry-oxblood);
+    opacity: 0.7;
+}
+
+/* Poem cards */
+:root[data-theme="light"] .poem-card {
+    border-color: var(--poetry-rule);
+    box-shadow: 0 1px 2px rgba(63, 58, 51, 0.06), 0 8px 24px rgba(63, 58, 51, 0.08);
+}
+
+:root[data-theme="light"] .poem-card:hover {
+    border-color: #D9CCB3;
+    box-shadow: 0 2px 4px rgba(63, 58, 51, 0.08), 0 18px 40px rgba(63, 58, 51, 0.14);
+}
+
+:root[data-theme="light"] .poem-thumbnail::after {
+    background: linear-gradient(to top, var(--poetry-card), transparent 40%);
+}
+
+:root[data-theme="light"] .poem-date {
+    color: var(--poetry-muted);
+    letter-spacing: 0.15em;
+}
+
+:root[data-theme="light"] .poem-date::before {
+    color: var(--poetry-oxblood);
+    opacity: 0.6;
+}
+
+:root[data-theme="light"] .poem-title {
+    color: #1F1B16;
+}
+
+:root[data-theme="light"] .poem-excerpt {
+    color: #4A4339;
+}
+
+:root[data-theme="light"] .poem-read-more-inline:hover,
+:root[data-theme="light"] .poem-read-more:hover {
+    color: var(--poetry-oxblood);
+}
+
+/* "More on Medium": an editorial outlined button */
+:root[data-theme="light"] .poetry-link-btn {
+    background: transparent;
+    color: #1E3A8A;
+    border: 1px solid #1E3A8A;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+}
+
+:root[data-theme="light"] .poetry-link-btn:hover {
+    background: #1E3A8A;
+    color: #FFFDF8;
+    border-color: #1E3A8A;
+    box-shadow: none;
+}
+
+/* Poem modal: cream header band, warm caption and verse */
+:root[data-theme="light"] .poem-modal-sticky-header {
+    background: linear-gradient(to bottom, #FFFDF8 0%, #FAF5EA 85%, rgba(250, 245, 234, 0) 100%);
+    border-bottom: 1px solid var(--poetry-rule);
+}
+
+:root[data-theme="light"] .poem-modal-sticky-header::before {
+    display: none;
+}
+
+:root[data-theme="light"] .poem-modal-header-date,
+:root[data-theme="light"] .poem-modal-date {
+    color: var(--poetry-muted);
+}
+
+:root[data-theme="light"] .poem-modal-sticky-title,
+:root[data-theme="light"] .poem-modal-title {
+    color: #1E3A8A;
+}
+
+:root[data-theme="light"] .poem-modal-close,
+:root[data-theme="light"] .poem-modal-sticky-close {
+    background: #F6F0E4;
+    border-color: var(--poetry-rule);
+    color: #3F3A33;
+}
+
+:root[data-theme="light"] .poem-modal-close:hover,
+:root[data-theme="light"] .poem-modal-sticky-close:hover {
+    background: #EFE7D6;
+    color: #1F1B16;
+}
+
+:root[data-theme="light"] .poem-modal-caption {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--poetry-muted);
+    border-bottom-color: var(--poetry-rule);
+}
+
+:root[data-theme="light"] .poem-modal-text,
+:root[data-theme="light"] .poem-line {
+    color: #2F2A24;
 }

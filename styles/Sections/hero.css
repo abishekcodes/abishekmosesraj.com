@@ -316,11 +316,11 @@
   .btn-secondary-new {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(var(--ink-rgb), 0.2);
   }
   
   .btn-secondary-new:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
     border-color: var(--color-green);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px var(--glow-green);
@@ -342,8 +342,8 @@
   }
   
   .stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.05);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     border-radius: 12px;
     padding: 1.2rem 0.8rem;
     text-align: center;
@@ -353,7 +353,7 @@
   
   .stat-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
     border-color: var(--color-blue);
     box-shadow: 0 4px 20px var(--glow-blue);
   }
@@ -375,10 +375,10 @@
   
   /* Tech Preview */
   .tech-preview {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--ink-rgb), 0.05);
     border-radius: 12px;
     padding: 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
   }
   
   .tech-preview-title {
@@ -400,13 +400,13 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.8rem 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(var(--ink-rgb), 0.03);
     border-radius: 8px;
     transition: all 0.3s ease;
   }
   
   .tech-icon-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
     transform: translateY(-2px);
   }
   
@@ -1113,8 +1113,8 @@
     gap: 1rem;
     padding: 1rem 1.25rem;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(var(--ink-rgb), 0.12);
+    background: rgba(var(--ink-rgb), 0.04);
     text-decoration: none;
     transition: all 0.3s ease;
   }
@@ -1170,7 +1170,7 @@
 
   .contact-modal-option:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
   }
 
   .contact-modal-option.email:hover {
@@ -1285,3 +1285,92 @@
       font-size: 1.2rem;
     }
   }
+
+
+/* Light theme: near-black first name with a deep blue last name (the dark
+   theme's lighter second line reads as washed out on white), and no neon glow
+   on the poetry title */
+:root[data-theme="light"] .hero-enhanced:not(.personal-hero) .first-name {
+  color: #0F172A;
+}
+
+:root[data-theme="light"] .hero-enhanced:not(.personal-hero) .last-name {
+  color: #1D4ED8;
+}
+
+:root[data-theme="light"] .personal-hero .last-name {
+  text-shadow: none;
+}
+
+/* Light theme hero polish */
+
+/* A faint cool wash at the top that fades into the white skills section */
+:root[data-theme="light"] .hero-enhanced:not(.personal-hero) {
+  background: linear-gradient(180deg, #EEF4FF 0%, #FFFFFF 70%);
+}
+
+/* Leadership role in a clear orange; #B45309 read as brown next to the blue */
+:root[data-theme="light"] .hero-role.role-leadership,
+:root[data-theme="light"] .cursor.cursor-leadership {
+  color: #C2410C;
+}
+
+/* Background icons in one faint slate instead of pastel smudges */
+:root[data-theme="light"] .hero-enhanced:not(.personal-hero) .floating-icon {
+  color: #64748B;
+  opacity: 0.08;
+}
+
+:root[data-theme="light"] .btn-primary-new {
+  background: #1D4ED8;
+  box-shadow: 0 1px 2px rgba(29, 78, 216, 0.3), 0 6px 16px rgba(29, 78, 216, 0.22);
+}
+
+:root[data-theme="light"] .btn-primary-new:hover {
+  background: #1E40AF;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.3), 0 10px 24px rgba(29, 78, 216, 0.26);
+}
+
+:root[data-theme="light"] .btn-secondary-new {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+:root[data-theme="light"] .btn-secondary-new:hover {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+  box-shadow: none;
+}
+
+:root[data-theme="light"] .scroll-text {
+  color: #64748B;
+}
+
+/* Light theme personal hero: sepia muses, stronger paper grain, and an
+   oxblood fleuron rendered as text rather than an emoji glyph */
+:root[data-theme="light"] .personal-hero::before {
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme="light"] .personal-hero .floating-icon {
+  color: #B8A98A;
+  opacity: 0.18;
+  filter: none;
+}
+
+:root[data-theme="light"] .personal-hero .personal-main::after {
+  content: '\2766\FE0E';
+  font-size: 1.1rem;
+  color: var(--poetry-oxblood);
+  opacity: 0.7;
+}
+
+:root[data-theme="light"] .personal-hero .personal-tagline {
+  color: #3F3A33;
+}
+
+:root[data-theme="light"] .personal-hero .scroll-text {
+  color: var(--poetry-muted);
+}

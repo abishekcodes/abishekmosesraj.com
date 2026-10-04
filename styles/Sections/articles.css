@@ -65,10 +65,10 @@
 
 .featured-article {
     display: flex;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.08);
     text-decoration: none;
     position: relative;
     margin-bottom: 3rem;
@@ -102,7 +102,7 @@
 
 .featured-article:hover {
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
+    box-shadow: 0 25px 50px rgba(var(--shadow-rgb), 0.4),
                 0 0 40px color-mix(in srgb, var(--article-color) 20%, transparent);
 }
 
@@ -145,7 +145,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(var(--canvas-rgb), 0.2) 100%);
 }
 
 .featured-icon-side::after {
@@ -153,7 +153,7 @@
     position: absolute;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(var(--ink-rgb), 0.1) 0%, transparent 60%);
     animation: pulse-glow 3s ease-in-out infinite;
 }
 
@@ -165,7 +165,7 @@
 .featured-icon {
     font-size: 5rem;
     color: white;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 8px 20px rgba(var(--shadow-rgb), 0.3));
     position: relative;
     z-index: 1;
     transition: transform 0.4s ease;
@@ -217,7 +217,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.08);
 }
 
 .featured-meta {
@@ -267,10 +267,10 @@
 }
 
 .article-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
     opacity: 0;
@@ -305,7 +305,7 @@
 
 .article-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+    box-shadow: 0 20px 40px rgba(var(--shadow-rgb), 0.3),
                 0 0 30px color-mix(in srgb, var(--article-color) 15%, transparent);
 }
 
@@ -324,13 +324,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(var(--canvas-rgb), 0.2) 100%);
 }
 
 .article-main-icon {
     font-size: 3.5rem;
     color: white;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 12px rgba(var(--shadow-rgb), 0.3));
     position: relative;
     z-index: 1;
     transition: transform 0.3s ease;
@@ -384,7 +384,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.06);
 }
 
 .article-tags {
@@ -394,13 +394,13 @@
 }
 
 .article-tag {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--ink-rgb), 0.05);
     color: var(--text-muted);
     padding: 0.25rem 0.6rem;
     border-radius: 12px;
     font-size: 0.7rem;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.08);
 }
 
 .article-meta .read-time {
@@ -451,8 +451,8 @@
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.05);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     border-radius: 12px;
     color: var(--text-primary);
     text-decoration: none;
@@ -700,4 +700,58 @@
         font-size: 0.9rem;
         padding: 0.875rem 1.5rem;
     }
+}
+
+
+/* Light theme: the per-article accent colours (orange, green, blue) are
+   bright enough for black but too faint as text on white, so darken them */
+:root[data-theme="light"] .featured-hook,
+:root[data-theme="light"] .featured-article:hover .featured-title,
+:root[data-theme="light"] .read-more,
+:root[data-theme="light"] .article-hook,
+:root[data-theme="light"] .article-card:hover .article-title {
+    color: color-mix(in srgb, var(--article-color) 62%, #000);
+}
+
+/* Light theme: tinted article headers instead of saturated slabs (same
+   treatment as the project cards), white cards, and a soft Featured pill */
+:root[data-theme="light"] .featured-article,
+:root[data-theme="light"] .article-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+:root[data-theme="light"] .featured-article:hover,
+:root[data-theme="light"] .article-card:hover {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .featured-icon-side {
+    background: color-mix(in srgb, var(--article-color) 12%, #FFFFFF);
+    border-right: 1px solid color-mix(in srgb, var(--article-color) 24%, #FFFFFF);
+}
+
+:root[data-theme="light"] .article-icon-wrapper {
+    background: color-mix(in srgb, var(--article-color) 12%, #FFFFFF);
+    border-bottom: 1px solid color-mix(in srgb, var(--article-color) 24%, #FFFFFF);
+}
+
+:root[data-theme="light"] .featured-icon-side::before,
+:root[data-theme="light"] .featured-icon-side::after,
+:root[data-theme="light"] .article-icon-wrapper::before {
+    display: none;
+}
+
+:root[data-theme="light"] .featured-icon,
+:root[data-theme="light"] .article-main-icon {
+    color: color-mix(in srgb, var(--article-color) 62%, #000);
+    filter: none;
+}
+
+:root[data-theme="light"] .featured-badge {
+    background: #FFEDD5;
+    color: #9A3412;
+    border: 1px solid #FED7AA;
+    box-shadow: none;
 }

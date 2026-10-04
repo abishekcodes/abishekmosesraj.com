@@ -78,15 +78,15 @@
 .story-card {
     position: relative;
     padding: 1.75rem 2rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     transition: all 0.3s ease;
 }
 
 .story-card:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.04);
+    border-color: rgba(var(--ink-rgb), 0.1);
     transform: translateX(5px);
 }
 
@@ -141,11 +141,11 @@
     display: flex;
     gap: 1.25rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     transition: all 0.4s ease;
     transition-delay: var(--delay);
     opacity: 0;
@@ -159,7 +159,7 @@
 
 .highlight-card:hover {
     transform: translateX(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.2);
 }
 
 /* Curious Mind — amber/gold */
@@ -295,7 +295,7 @@
         background: transparent;
         border: none;
         border-radius: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
     }
 
     .story-card:last-child {
@@ -352,4 +352,26 @@
         font-size: 0.95rem;
         line-height: 1.7;
     }
+}
+
+/* Light theme: tinted highlight icon tiles to match the skills section */
+:root[data-theme="light"] .highlight-card:nth-child(1) .highlight-icon {
+    background: #FEF3C7;
+    color: #B45309;
+    box-shadow: none;
+    border: 1px solid #FDE68A;
+}
+
+:root[data-theme="light"] .highlight-card:nth-child(2) .highlight-icon {
+    background: #DBEAFE;
+    color: #1D4ED8;
+    box-shadow: none;
+    border: 1px solid #BFDBFE;
+}
+
+:root[data-theme="light"] .highlight-card:nth-child(3) .highlight-icon {
+    background: #DCFCE7;
+    color: #15803D;
+    box-shadow: none;
+    border: 1px solid #BBF7D0;
 }

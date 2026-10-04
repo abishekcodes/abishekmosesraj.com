@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { usePageMode } from '@/context/PageModeContext';
 import useIsAppsDomain from '@/hooks/useIsAppsDomain';
-import { Briefcase, Feather, Menu, X, ExternalLink } from 'lucide-react';
+import useTheme from '@/hooks/useTheme';
+import { Briefcase, Feather, Menu, X, ExternalLink, Sun, Moon } from 'lucide-react';
 
 interface NavigationProps {
   activeSection: string;
@@ -20,6 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { mode, toggleMode } = usePageMode();
   const showApps = useIsAppsDomain();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -127,6 +129,14 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
             </button>
           </div>
           )}
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+            title={theme === 'light' ? 'Dark theme' : 'Light theme'}
+          >
+            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
           <button
             className="nav-hamburger"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

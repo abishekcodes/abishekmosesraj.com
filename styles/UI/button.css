@@ -7,7 +7,7 @@
     position: relative;
     overflow: hidden;
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(var(--shadow-rgb), 0.2);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -33,11 +33,11 @@
   .btn-secondary {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(var(--ink-rgb), 0.2);
   }
 
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
     border-color: var(--color-green);
     box-shadow: 0 10px 25px var(--glow-green);
   }

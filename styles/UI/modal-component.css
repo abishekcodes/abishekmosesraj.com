@@ -19,13 +19,13 @@
 
 .modal-component-backdrop--default,
 .modal-component-backdrop--project {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(var(--canvas-rgb), 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .modal-component-backdrop--poem {
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(var(--canvas-rgb), 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 2rem;
@@ -45,20 +45,20 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
+    box-shadow: 0 25px 50px rgba(var(--shadow-rgb), 0.5);
     animation: modalSlideUp 0.3s ease;
     overflow: hidden;
 }
 
 .modal-component--poem {
-    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    background: linear-gradient(180deg, var(--modal-top) 0%, var(--modal-bottom) 100%);
     border-radius: 16px;
     max-height: 85vh;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.08);
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 30px 60px rgba(var(--canvas-rgb), 0.6),
+        0 0 0 1px rgba(var(--ink-rgb), 0.05);
     animation: modalSlideUpPoem 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -90,7 +90,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
     flex-shrink: 0;
 }
 
@@ -104,7 +104,7 @@
 
 /* Close Button */
 .modal-component-close {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
     border: none;
     color: var(--text-secondary);
     width: 36px;
@@ -121,7 +121,7 @@
 }
 
 .modal-component-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(var(--ink-rgb), 0.2);
     color: var(--text-primary);
 }
 
@@ -130,7 +130,7 @@
     top: 1.25rem;
     right: 1.25rem;
     margin-left: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
     font-size: 1.25rem;
     z-index: 10;
 }
@@ -140,7 +140,7 @@
 }
 
 .modal-component-close--poem {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
 }
 
 /* Body */
@@ -212,8 +212,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(var(--ink-rgb), 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.2);
     color: var(--text-primary);
     width: 48px;
     height: 48px;
@@ -271,15 +271,15 @@
 .modal-component-nav--decorative {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+    background: linear-gradient(135deg, rgba(var(--surface-30-rgb), 0.95) 0%, rgba(var(--surface-20-rgb), 0.98) 100%);
     border: 2px solid rgba(59, 130, 246, 0.3);
     color: var(--color-blue);
     font-size: 1.75rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 4px 20px rgba(var(--canvas-rgb), 0.4),
         0 0 30px rgba(59, 130, 246, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        inset 0 1px 0 rgba(var(--ink-rgb), 0.05);
     overflow: hidden;
 }
 
@@ -303,14 +303,14 @@
 }
 
 .modal-component-nav--decorative:hover {
-    background: linear-gradient(135deg, rgba(40, 40, 40, 1) 0%, rgba(25, 25, 25, 1) 100%);
+    background: linear-gradient(135deg, rgba(var(--surface-40-rgb), 1) 0%, rgba(var(--surface-25-rgb), 1) 100%);
     border-color: var(--color-blue);
     color: var(--color-blue-light);
     transform: translateY(-50%) scale(1.15);
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 8px 30px rgba(var(--canvas-rgb), 0.5),
         0 0 40px rgba(59, 130, 246, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        inset 0 1px 0 rgba(var(--ink-rgb), 0.1);
 }
 
 .modal-component-nav--decorative:hover .nav-pulse {
@@ -380,8 +380,8 @@
     justify-content: center;
     gap: 1.5rem;
     padding: 1rem 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+    background: rgba(var(--canvas-rgb), 0.2);
     flex-shrink: 0;
 }
 
@@ -393,14 +393,14 @@
 
 .modal-component-footer--poem {
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.08);
     margin-top: 2rem;
     background: transparent;
 }
 
 .modal-component-footer-nav {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     color: var(--text-secondary);
     width: 36px;
     height: 36px;
@@ -498,7 +498,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(to top, rgba(15, 15, 15, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%);
+        background: linear-gradient(to top, rgba(var(--surface-15-rgb), 0.98) 0%, rgba(var(--surface-15-rgb), 0.95) 100%);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         z-index: 100;
@@ -563,7 +563,7 @@
         transform: translateX(-50%);
         width: 36px;
         height: 4px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(var(--ink-rgb), 0.3);
         border-radius: 2px;
         z-index: 20;
     }
@@ -594,8 +594,8 @@
         padding: 0.75rem 1rem;
         padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
         margin-top: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        background: linear-gradient(to top, rgba(13, 13, 13, 0.98) 0%, rgba(13, 13, 13, 0.95) 100%);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+        background: linear-gradient(to top, rgba(var(--surface-13-rgb), 0.98) 0%, rgba(var(--surface-13-rgb), 0.95) 100%);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         z-index: 100;
@@ -691,4 +691,45 @@
 /* The dialog takes programmatic focus on open; it isn't a control itself */
 .modal-component:focus {
   outline: none;
+}
+
+/* Light theme: dim the page with a slate scrim rather than washing it out */
+:root[data-theme="light"] .modal-component-backdrop--default,
+:root[data-theme="light"] .modal-component-backdrop--project {
+    background: rgba(15, 23, 42, 0.45);
+}
+
+/* Light theme poem modal: a warm dim instead of a white wash so the page
+   recedes and the paper sheet keeps a visible edge; cream nav arrows */
+:root[data-theme="light"] .modal-component-backdrop--poem {
+    background: rgba(63, 58, 51, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+:root[data-theme="light"] .modal-component--poem {
+    border-color: #E9E1D2;
+    box-shadow: 0 24px 60px rgba(63, 58, 51, 0.25);
+}
+
+:root[data-theme="light"] .modal-component-nav--decorative,
+:root[data-theme="light"] .modal-component-nav--decorative:hover {
+    background: #FFFDF8;
+    border: 1px solid #E9E1D2;
+    color: #1E3A8A;
+    box-shadow: 0 2px 8px rgba(63, 58, 51, 0.12);
+}
+
+:root[data-theme="light"] .modal-component-nav--decorative:hover {
+    border-color: #1E3A8A;
+}
+
+:root[data-theme="light"] .modal-component-nav--decorative .nav-pulse {
+    display: none;
+}
+
+:root[data-theme="light"] .modal-component-footer--poem .modal-component-footer-nav {
+    background: #FFFDF8;
+    border-color: #E9E1D2;
+    color: #1E3A8A;
 }

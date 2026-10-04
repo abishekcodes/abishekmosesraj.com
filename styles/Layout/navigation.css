@@ -4,14 +4,14 @@
     width: 100%;
     z-index: 1000;
     padding: 1rem 2rem;
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(var(--surface-10-rgb), 0.9);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
     transition: all 0.3s ease;
   }
   
   .nav-scrolled {
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(var(--surface-10-rgb), 0.95);
   }
   
   .nav-container {
@@ -132,7 +132,7 @@
 
   .mode-icon-btn:hover {
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(var(--ink-rgb), 0.05);
   }
 
   .mode-icon-btn.active {
@@ -144,7 +144,7 @@
     bottom: -32px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(20, 20, 20, 0.95);
+    background: rgba(var(--surface-20-rgb), 0.95);
     color: var(--text-primary);
     padding: 0.35rem 0.6rem;
     border-radius: 4px;
@@ -155,8 +155,8 @@
     visibility: hidden;
     transition: all 0.2s ease;
     pointer-events: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
+    box-shadow: 0 4px 12px rgba(var(--shadow-rgb), 0.3);
   }
 
   .mode-tooltip::before {
@@ -167,7 +167,7 @@
     transform: translateX(-50%);
     border-width: 0 5px 5px 5px;
     border-style: solid;
-    border-color: transparent transparent rgba(20, 20, 20, 0.95) transparent;
+    border-color: transparent transparent rgba(var(--surface-20-rgb), 0.95) transparent;
   }
 
   .mode-icon-btn:hover .mode-tooltip {
@@ -180,8 +180,8 @@
     position: relative;
     width: 48px;
     height: 26px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     border-radius: 13px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -189,7 +189,7 @@
   }
 
   .toggle-switch:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.15);
     border-color: var(--primary-color);
   }
 
@@ -202,7 +202,7 @@
     background: var(--color-blue);
     border-radius: 50%;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(var(--shadow-rgb), 0.2);
     pointer-events: none;
   }
 
@@ -215,6 +215,27 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  /* Light/dark theme switch */
+  .theme-toggle {
+    background: none;
+    border: 1px solid rgba(var(--ink-rgb), 0.12);
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .theme-toggle:hover {
+    color: var(--primary-color);
+    border-color: rgba(var(--ink-rgb), 0.25);
+    background: rgba(var(--ink-rgb), 0.05);
   }
 
   /* Hamburger — hidden on desktop */
@@ -231,7 +252,7 @@
   }
 
   .nav-hamburger:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
   }
 
   /* Mobile dropdown menu — hidden on desktop */
@@ -293,7 +314,7 @@
       display: flex;
       flex-direction: column;
       padding: 0.25rem 1rem 0.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      border-top: 1px solid rgba(var(--ink-rgb), 0.07);
       animation: menuSlideDown 0.2s ease forwards;
     }
 
@@ -305,7 +326,7 @@
     .mobile-menu-item {
       background: none;
       border: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(var(--ink-rgb), 0.05);
       color: var(--text-secondary);
       font-size: 0.95rem;
       font-weight: 500;
@@ -329,3 +350,198 @@
     }
   }
   
+/* ============================================================================ */
+/* LIGHT THEME NAV                                                              */
+/* ============================================================================ */
+
+/* Solid bar with a defined edge and shadow so it stands apart from the page */
+:root[data-theme="light"] .nav,
+:root[data-theme="light"] .nav-scrolled {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* The cyan logo is drawn for black; deepen it to a sky blue on white */
+:root[data-theme="light"] .logo-svg {
+  filter: brightness(0.72) saturate(1.4);
+}
+
+/* Links: softer rest colour so the active section stands out */
+:root[data-theme="light"] .nav-link {
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+:root[data-theme="light"] .nav-link:hover,
+:root[data-theme="light"] .nav-link.active {
+  color: #1D4ED8;
+}
+
+:root[data-theme="light"] .nav-link.active {
+  font-weight: 600;
+}
+
+/* The outlined Resume button is taller than the plain links, so line every
+   item up on its text baseline rather than the top of its box */
+:root[data-theme="light"] .nav-links {
+  align-items: baseline;
+}
+
+/* Resume: a quiet outlined button, set apart from the in-page section links */
+:root[data-theme="light"] .nav-link-external {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  color: #0F172A;
+}
+
+:root[data-theme="light"] .nav-link-external::after {
+  display: none;
+}
+
+:root[data-theme="light"] .nav-link-external:hover {
+  color: #1D4ED8;
+  border-color: #93C5FD;
+  background: #EFF6FF;
+}
+
+/* Right-hand controls: one rounded-square shape language */
+:root[data-theme="light"] .mode-icon-btn {
+  color: #64748B;
+  border-radius: 8px;
+}
+
+:root[data-theme="light"] .mode-icon-btn:hover {
+  color: #334155;
+  background: #F1F5F9;
+}
+
+:root[data-theme="light"] .mode-icon-btn.active {
+  color: #1D4ED8;
+  background: #EFF6FF;
+}
+
+:root[data-theme="light"] .toggle-switch {
+  background: #E2E8F0;
+  border-color: #CBD5E1;
+}
+
+:root[data-theme="light"] .toggle-slider {
+  background: #2563EB;
+  box-shadow: 0 0 0 2px #FFFFFF, 0 1px 2px rgba(15, 23, 42, 0.25);
+}
+
+:root[data-theme="light"] .theme-toggle,
+:root[data-theme="light"] .nav-hamburger {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #334155;
+}
+
+:root[data-theme="light"] .theme-toggle:hover,
+:root[data-theme="light"] .nav-hamburger:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #1D4ED8;
+}
+
+/* Mobile header and dropdown */
+@media (max-width: 768px) {
+  :root[data-theme="light"] .nav-actions {
+    gap: 0.625rem;
+  }
+
+  :root[data-theme="light"] .mobile-menu-dropdown {
+    border-top-color: #EEF2F6;
+  }
+
+  /* While the menu is open, dim the page under the whole bar so content
+     doesn't show through around the sheet */
+  :root[data-theme="light"] .nav:has(.mobile-menu-dropdown) {
+    box-shadow: 0 0 0 100vmax rgba(15, 23, 42, 0.25);
+    clip-path: inset(0 0 -100vmax 0);
+  }
+
+  :root[data-theme="light"] .mobile-menu-item {
+    color: #334155;
+    border-bottom-color: #EEF2F6;
+    padding: 0.875rem 0.25rem 0.875rem 0.75rem;
+    border-left: 3px solid transparent;
+  }
+
+  :root[data-theme="light"] .mobile-menu-item:hover,
+  :root[data-theme="light"] .mobile-menu-item.active {
+    color: #1D4ED8;
+  }
+
+  :root[data-theme="light"] .mobile-menu-item.active {
+    border-left-color: #2563EB;
+  }
+
+  :root[data-theme="light"] .mobile-menu-item-external {
+    justify-content: center;
+    margin-top: 0.5rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    color: #0F172A;
+  }
+}
+
+/* Poetry mode: warm paper tones instead of cool slate */
+:root[data-theme="light"] .personal-mode .nav {
+  background: #FFFDF8;
+  border-bottom-color: #E9E1D2;
+}
+
+:root[data-theme="light"] .personal-mode .nav-link,
+:root[data-theme="light"] .personal-mode .mobile-menu-item {
+  color: #3F3A33;
+}
+
+:root[data-theme="light"] .personal-mode .nav-link:hover,
+:root[data-theme="light"] .personal-mode .nav-link.active,
+:root[data-theme="light"] .personal-mode .mobile-menu-item.active {
+  color: #1E3A8A;
+}
+
+:root[data-theme="light"] .personal-mode .nav-link::after {
+  background: #1E3A8A;
+}
+
+:root[data-theme="light"] .personal-mode .mode-icon-btn.active {
+  color: #1E3A8A;
+  background: #EFE7D6;
+}
+
+:root[data-theme="light"] .personal-mode .toggle-slider {
+  background: #1E3A8A;
+}
+
+:root[data-theme="light"] .personal-mode .mobile-menu-item.active {
+  border-left-color: #1E3A8A;
+}
+
+:root[data-theme="light"] .personal-mode .theme-toggle,
+:root[data-theme="light"] .personal-mode .nav-hamburger,
+:root[data-theme="light"] .personal-mode .toggle-switch {
+  border-color: #E9E1D2;
+  background: #FFFDF8;
+}
+
+:root[data-theme="light"] .personal-mode .toggle-switch {
+  background: #F6F0E4;
+}
+
+:root[data-theme="light"] .personal-mode .theme-toggle:hover,
+:root[data-theme="light"] .personal-mode .nav-hamburger:hover,
+:root[data-theme="light"] .personal-mode .mode-icon-btn:hover {
+  background: #F6F0E4;
+}
+
+:root[data-theme="light"] .personal-mode .mobile-menu-item {
+  border-bottom-color: #F0E9DC;
+}

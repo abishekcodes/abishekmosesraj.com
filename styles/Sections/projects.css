@@ -76,12 +76,12 @@
     /* 378px keeps three cards per row inside the 1200px container */
     flex: 1 1 320px;
     max-width: 378px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(var(--ink-rgb), 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     position: relative;
     opacity: 0;
@@ -112,7 +112,7 @@
     background: rgba(59, 130, 246, 0.05);
     border-color: rgba(59, 130, 246, 0.3);
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+    box-shadow: 0 20px 40px rgba(var(--shadow-rgb), 0.3),
                 0 0 30px var(--glow-blue);
 }
 
@@ -142,7 +142,7 @@
 .project-icon {
     font-size: 4rem;
     color: white;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 8px rgba(var(--shadow-rgb), 0.3));
 }
 
 .project-content {
@@ -192,7 +192,7 @@
 .project-contribution {
     margin: 1.5rem 0 0 0;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.06);
 }
 
 .contribution-label {
@@ -469,7 +469,7 @@
 }
 
 .tech-more {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
     color: var(--text-secondary);
 }
 
@@ -515,7 +515,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(var(--canvas-rgb), 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
@@ -540,8 +540,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(var(--ink-rgb), 0.1);
+    box-shadow: 0 25px 50px rgba(var(--shadow-rgb), 0.5);
     animation: slideUp 0.3s ease;
     overflow: hidden;
 }
@@ -558,7 +558,7 @@
 }
 
 .modal-close {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(var(--ink-rgb), 0.1);
     border: none;
     color: var(--text-secondary);
     width: 36px;
@@ -575,7 +575,7 @@
 }
 
 .modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(var(--ink-rgb), 0.2);
     color: var(--text-primary);
 }
 
@@ -585,7 +585,7 @@
     gap: 1rem;
     padding: 1.25rem 1.5rem;
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
     flex-shrink: 0;
 }
 
@@ -652,7 +652,7 @@
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
     color: var(--text-secondary);
 }
 
@@ -703,7 +703,7 @@
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
     color: var(--text-secondary);
 }
 
@@ -796,8 +796,8 @@
 
 /* Tech Section */
 .tech-section {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(var(--ink-rgb), 0.02);
+    border: 1px solid rgba(var(--ink-rgb), 0.06);
     border-radius: 12px;
     padding: 1.25rem;
 }
@@ -941,7 +941,7 @@
     flex-wrap: wrap;
     padding: 1.5rem 0;
     margin-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.06);
     justify-content: center;
 }
 
@@ -975,13 +975,13 @@
 }
 
 .modal-link.blog {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(var(--ink-rgb), 0.08);
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
 }
 
 .modal-link.blog:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(var(--ink-rgb), 0.12);
     transform: translateY(-2px);
 }
 
@@ -1169,8 +1169,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(var(--ink-rgb), 0.1);
+    border: 1px solid rgba(var(--ink-rgb), 0.2);
     color: var(--text-primary);
     width: 48px;
     height: 48px;
@@ -1206,14 +1206,14 @@
     justify-content: center;
     gap: 1.5rem;
     padding: 1rem 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+    background: rgba(var(--canvas-rgb), 0.2);
     flex-shrink: 0;
 }
 
 .modal-footer-nav {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(var(--ink-rgb), 0.08);
+    border: 1px solid rgba(var(--ink-rgb), 0.15);
     color: var(--text-secondary);
     width: 36px;
     height: 36px;
@@ -1346,4 +1346,118 @@
         padding: 0.4rem 0.75rem;
         font-size: 0.7rem;
     }
+}
+
+
+/* Light theme: darker section icons in the project modal */
+:root[data-theme="light"] .impact-section h3 svg,
+:root[data-theme="light"] .modal-highlights .highlight-icon {
+    color: #047857;
+}
+
+:root[data-theme="light"] .learnings-section h3 svg,
+:root[data-theme="light"] .modal-note svg {
+    color: #B45309;
+}
+
+:root[data-theme="light"] .tech-tag {
+    color: #1D4ED8;
+}
+
+/* Light theme cards: white surface with a defined edge, and a softly tinted
+   header per card instead of the dark theme's saturated slabs, which read as
+   heavy, muddy blocks on a white page */
+:root[data-theme="light"] .project-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+:root[data-theme="light"] .project-card:hover {
+    background: #FFFFFF;
+    border-color: #BFDBFE;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+:root[data-theme="light"] .project-header {
+    height: 132px;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    border-bottom: 1px solid #DBEAFE;
+    --project-icon-color: #1D4ED8;
+}
+
+:root[data-theme="light"] .projects-grid .project-card:nth-child(4n+2) .project-header {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border-bottom-color: #BBF7D0;
+    --project-icon-color: #15803D;
+}
+
+:root[data-theme="light"] .projects-grid .project-card:nth-child(4n+3) .project-header {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+    border-bottom-color: #FDE68A;
+    --project-icon-color: #B45309;
+}
+
+:root[data-theme="light"] .projects-grid .project-card:nth-child(4n+4) .project-header {
+    background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+    border-bottom-color: #DDD6FE;
+    --project-icon-color: #6D28D9;
+}
+
+/* Icon sits on a small white tile rather than floating in the header */
+:root[data-theme="light"] .project-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+    color: var(--project-icon-color);
+    filter: none;
+}
+
+:root[data-theme="light"] .project-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Neutral role chip so chip, tags and button aren't three stacked blues */
+:root[data-theme="light"] .project-role {
+    background: #F8FAFC;
+    border-color: #E2E8F0;
+}
+
+:root[data-theme="light"] .project-role .role-icon {
+    color: #475569;
+}
+
+:root[data-theme="light"] .tech-tag {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+}
+
+:root[data-theme="light"] .tech-more {
+    background: #F1F5F9;
+    color: #475569;
+    border-color: #E2E8F0;
+}
+
+:root[data-theme="light"] .project-cta {
+    background: #FFFFFF;
+    border-color: #CBD5E1;
+    color: #1D4ED8;
+}
+
+:root[data-theme="light"] .project-cta .cta-icon {
+    filter: none;
+}
+
+:root[data-theme="light"] .project-card:hover .project-cta {
+    background: #EFF6FF;
+    border-color: #93C5FD;
 }
