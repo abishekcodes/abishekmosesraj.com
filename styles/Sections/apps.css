@@ -66,7 +66,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -106,6 +106,11 @@
     border-color: rgba(34, 197, 94, 0.3);
 }
 
+.app-card-purple:hover {
+    background: rgba(168, 85, 247, 0.05);
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
 .app-card-header {
     height: 160px;
     display: flex;
@@ -121,6 +126,10 @@
 
 .app-card-green .app-card-header {
     background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark) 100%);
+}
+
+.app-card-purple .app-card-header {
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-dark) 100%);
 }
 
 .app-card-logo {
@@ -175,6 +184,10 @@
     color: var(--color-green-light);
 }
 
+.app-card-purple .app-card-tagline {
+    color: var(--color-purple-light);
+}
+
 .app-card-description {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
@@ -212,6 +225,10 @@
     color: var(--color-green);
 }
 
+.app-card-purple .feature-icon {
+    color: var(--color-purple);
+}
+
 .app-card-green .tech-tag {
     background: rgba(34, 197, 94, 0.1);
     color: var(--color-green);
@@ -220,6 +237,16 @@
 
 .app-card-green .tech-tag:hover {
     background: rgba(34, 197, 94, 0.2);
+}
+
+.app-card-purple .tech-tag {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--color-purple);
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+.app-card-purple .tech-tag:hover {
+    background: rgba(168, 85, 247, 0.2);
 }
 
 /* Privacy Note */
@@ -274,6 +301,16 @@
 .app-card-green .app-card-cta:hover {
     background: rgba(34, 197, 94, 0.1);
     border-color: rgba(34, 197, 94, 0.5);
+}
+
+.app-card-purple .app-card-cta {
+    color: var(--color-purple);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.app-card-purple .app-card-cta:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.5);
 }
 
 .app-card-cta .cta-icon {

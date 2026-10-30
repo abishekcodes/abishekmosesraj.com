@@ -23,7 +23,7 @@
 }
 
 .apps-preview-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -65,7 +65,7 @@
 /* Grid */
 .apps-preview-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
@@ -107,6 +107,11 @@
 .app-preview-card-green:hover {
     background: rgba(34, 197, 94, 0.05);
     border-color: rgba(34, 197, 94, 0.3);
+}
+
+.app-preview-card-purple:hover {
+    background: rgba(168, 85, 247, 0.05);
+    border-color: rgba(168, 85, 247, 0.3);
 }
 
 .app-preview-top {
@@ -179,7 +184,13 @@
     border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
-/* CTA pinned to the bottom so both cards align regardless of tagline length */
+.app-preview-card-purple .app-preview-tag {
+    background: rgba(168, 85, 247, 0.1);
+    color: var(--color-purple-light);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* CTA pinned to the bottom so all cards align regardless of tagline length */
 .app-preview-cta {
     display: inline-flex;
     align-items: center;
@@ -197,6 +208,10 @@
 
 .app-preview-card-green .app-preview-cta {
     color: var(--color-green-light);
+}
+
+.app-preview-card-purple .app-preview-cta {
+    color: var(--color-purple-light);
 }
 
 .app-preview-card:hover .app-preview-cta {
@@ -226,6 +241,13 @@
     border-color: rgba(34, 197, 94, 0.4);
     background: rgba(34, 197, 94, 0.06);
     transform: translateY(-2px);
+}
+
+/* Tablet: three cards get too narrow, so drop to two columns */
+@media (max-width: 1024px) {
+    .apps-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Tablet & mobile */

@@ -61,7 +61,7 @@ export interface ShowcaseApp {
   url: string;
   privacyUrl: string;
   termsUrl: string;
-  accent: 'blue' | 'green';
+  accent: 'blue' | 'green' | 'purple';
 }
 
 // Poems

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- SurveyKeeper: a clipboard checklist. PNGs in this folder are rendered from this file. -->
+  <rect width="512" height="512" fill="#0f172a"/>
+  <g fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="140" y="112" width="232" height="300" rx="32"/>
+    <rect x="204" y="84" width="104" height="52" rx="16" fill="#0f172a"/>
+    <path d="M184 196l20 20 36-40"/>
+    <path d="M270 196h62"/>
+    <path d="M184 276l20 20 36-40"/>
+    <path d="M270 276h62"/>
+    <rect x="186" y="352" width="36" height="36" rx="8" stroke-width="16"/>
+    <path d="M270 370h62"/>
+  </g>
+</svg>

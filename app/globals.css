@@ -31,6 +31,9 @@
   --color-blue: #3B82F6;
   --color-blue-light: #60A5FA;
   --color-blue-dark: #2563EB;
+  --color-purple: #A855F7;
+  --color-purple-light: #C084FC;
+  --color-purple-dark: #9333EA;
 
   /* Primary theme colors */
   --primary-color: #3B82F6;
@@ -106,6 +109,9 @@
   --color-blue: #2563EB;
   --color-blue-light: #1D4ED8;
   --color-blue-dark: #1E40AF;
+  --color-purple: #7E22CE;
+  --color-purple-light: #6B21A8;
+  --color-purple-dark: #6B21A8;
   --primary-color: #2563EB;
   --primary-light: #1D4ED8;
   --primary-dark: #1E40AF;
